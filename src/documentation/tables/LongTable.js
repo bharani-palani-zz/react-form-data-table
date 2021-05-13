@@ -18,19 +18,17 @@ const LongTable = props => {
   return (
     <>
       <div className="overflowHidden">
-        <h3 className="heading">Long Table</h3>
+        <h4 className="heading">Long Table</h4>
         <pre className="code">
           {`
         <ReactFormDataTable
           data={data}
-          theme="dark"
         />
         `}
         </pre>
         <ReactFormDataTable
           TableAliasRows={TableAliasRows}
           data={data}
-          theme="dark"
         />
       </div>
     </>

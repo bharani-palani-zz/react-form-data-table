@@ -18,20 +18,18 @@ const NoPagination = props => {
   return (
     <>
       <div className="overflowHidden">
-        <h3 className="heading">Long Table</h3>
+        <h4 className="heading">Long Table</h4>
         <pre className="code">
         {`
         <ReactFormDataTable
           config={{ footer: { pagination: {} } }}
           data={data}
-          theme="dark"
         />
       `}
         </pre>
         <ReactFormDataTable
           config={{ footer: { pagination: {} } }}
           data={data}
-          theme="dark"
         />
       </div>
     </>
