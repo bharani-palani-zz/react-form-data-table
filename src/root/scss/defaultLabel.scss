@@ -1,0 +1,7 @@
+@mixin default-label($defaultLabelColor) {
+  .defaultLabel {
+    height: 36px;
+    line-height: 2.5;
+    color: $defaultLabelColor;
+  }
+}

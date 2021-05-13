@@ -1,0 +1,77 @@
+{
+  "homepage": "https://bharani-palani.github.io/react-form-data-table",
+  "name": "react-form-data-table",
+  "version": "1.0.5",
+  "description": "React component with form based data table, compromising all data table features with ajax and more..",
+  "author": "Bharani Palani",
+  "license": "MIT",
+  "main": "src/root/ReactFormDataTable.js",
+  "bin": "src/root/ReactFormDataTable.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "babel-cli": "^6.26.0",
+    "code-prettify": "^0.1.0",
+    "gh-pages": "^3.1.0",
+    "node-sass": "^4.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "export PORT=3000 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "data table",
+    "react",
+    "react table",
+    "react pagination",
+    "react form table",
+    "ajax table",
+    "ajax grid",
+    "react form",
+    "search table",
+    "searchable table",
+    "grid",
+    "grid table",
+    "table",
+    "pagination",
+    "pagination table",
+    "filter",
+    "filter table",
+    "sort",
+    "sort table"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bharani-palani/react-form-data-table.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bharani-palani/react-form-data-table/issues"
+  }
+}

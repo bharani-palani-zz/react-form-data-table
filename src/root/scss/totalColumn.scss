@@ -1,0 +1,14 @@
+@mixin total-column() {
+  .totalColumn {
+    border-bottom: double 3px;
+    border-top: solid 1px;
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 5px 0;
+    @include view-mobile {
+      padding-left: 0;
+      border-top: 0;
+      margin-top: 0;
+    }
+  }
+}

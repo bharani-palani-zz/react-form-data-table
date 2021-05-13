@@ -1,0 +1,68 @@
+@mixin date-time-selector(
+  $dateTimeSelectorBg,
+  $dateTimeSelectorColor,
+  $dateTimeSelectorBorder,
+  $dateTimeSelectorDropDownBg,
+  $dateTimeSelectorDropDownBorderColor,
+  $dateTimeSelectorDropDownBgColorSelected,
+  $dateTimeSelectorDropDownColorSelected
+) {
+  .dateTimeSelector {
+    display: grid;
+    justify-content: space-evenly;
+    border: solid 1px $dateTimeSelectorBorder;
+    line-height: 2.2;
+    text-align: center;
+    border-radius: 5px;
+    background: $dateTimeSelectorBg;
+    color: $dateTimeSelectorColor;
+    &.date {
+      grid-template-columns: repeat(5, auto);
+    }
+    &.dateTime {
+      grid-template-columns: repeat(11, auto);
+    }
+    .selected {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .dateTimeDropDown {
+      position: relative;
+      user-select: none;
+      .placeHolder {
+        cursor: pointer;
+        white-space: nowrap;
+        display: block;
+      }
+      .options {
+        position: absolute;
+        z-index: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: solid 1px $dateTimeSelectorDropDownBorderColor;
+        border-top: 0;
+        max-height: 200px;
+        left: -7px;
+        overflow-y: scroll;
+        white-space: nowrap;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        li {
+          cursor: pointer;
+          text-align: center;
+          line-height: 2;
+          background: $dateTimeSelectorDropDownBg;
+          &.checked {
+            background: $dateTimeSelectorDropDownBgColorSelected;
+            color: $dateTimeSelectorDropDownColorSelected;
+          }
+          .labelValue {
+            padding: 0 5px;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

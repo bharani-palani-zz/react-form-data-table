@@ -1,0 +1,69 @@
+@mixin footer(
+  $footerLinkColor,
+  $footerLinkActiveBorderColor,
+  $footerLinkActiveBgColor,
+  $footerSubmitBtnColor,
+  $footerSubmitBtnBgColor,
+  $footerSubmitBtnBorderColor
+) {
+  .footer {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    .page {
+      list-style-type: none;
+      display: inline-flex;
+      margin: 0;
+      user-select: none;
+      justify-content: center;
+      width: 100%;
+      padding-left: 0;
+      li {
+        color: $footerLinkColor;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        cursor: pointer;
+        line-height: 40px;
+        display: inline-block;
+        &.active {
+          background: $footerLinkActiveBgColor;
+          border: solid 1px $footerLinkActiveBorderColor;
+        }
+        &.lt,
+        &.gt {
+          font-size: 16px;
+          &.disabled {
+            cursor: not-allowed;
+            color: $disabled-grey;
+          }
+        }
+      }
+    }
+    .submitBtn {
+      padding: 13px 20px;
+      background: $footerSubmitBtnBgColor;
+      color: $footerSubmitBtnColor;
+      cursor: pointer;
+      font-size: 14px;
+      outline: 0;
+      border: solid 1px $footerSubmitBtnBorderColor;
+      border-radius: 5px;
+      .gridBtn {
+        display: flex;
+        position: relative;
+        .htmlIcon {
+          display: table;
+          color: $success;
+          font-size: 15px;
+          position: absolute;
+          right: -20px;
+          top: -5px;
+        }
+      }
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+}

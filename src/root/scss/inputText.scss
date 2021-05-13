@@ -1,0 +1,15 @@
+@mixin input-text($inputColor, $inputBgColor, $inputBorderColor) {
+  .inputText {
+    display: block;
+    width: 100%;
+    padding: 9px 10px;
+    color: $inputColor;
+    background-color: $inputBgColor;
+    border: none;
+    border-radius: 4px;
+    outline: 0;
+    resize: none;
+    border: solid 1px $inputBorderColor;
+    font-size: 14px;
+  }
+}

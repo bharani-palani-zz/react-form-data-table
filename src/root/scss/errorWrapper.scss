@@ -1,0 +1,19 @@
+@mixin error-wrapper($errorWrapperColor) {
+  .errorWrapper {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $errorWrapperColor;
+    }
+    ol {
+      padding-left: 15px;
+      color: $errorWrapperColor;
+      li {
+        padding: 5px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@mixin header($headerColor, $headerBg, $headerBorderColor) {
+  .header {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-align: center;
+    padding: 8px 0;
+    border-top: solid 1px $headerBorderColor;
+    border-bottom: solid 1px $headerBorderColor;
+    color: $headerColor;
+    background: $headerBg;
+    .htmlIcon {
+      color: $headerColor;
+    }
+  }
+}

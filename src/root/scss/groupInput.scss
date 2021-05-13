@@ -1,0 +1,94 @@
+@mixin group-input(
+  $groupInputColor,
+  $groupInputBgColor,
+  $groupInputBorderColor,
+  $groupInputDropDownOdd,
+  $groupInputDropDownEven
+) {
+  .group-input {
+    display: flex;
+    float: right;
+    user-select: none;
+    position: relative;
+    .inputWrapper {
+      position: inherit;
+      left: -35px;
+      .join-input {
+        padding: 0 25px 0 10px;
+        z-index: 1;
+        height: $search-container-height;
+        outline: 0;
+        border: solid 1px $groupInputBorderColor;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        font-size: 14px;
+        color: $groupInputColor;
+        background: $groupInputBgColor;
+      }
+      .dismiss {
+        position: absolute;
+        top: 8px;
+        right: 20px;
+        color: $light-grey;
+        font-size: 15px;
+        cursor: pointer;
+        &:hover {
+          color: $disabled-grey;
+        }
+      }
+    }
+    .join-select {
+      position: absolute;
+      right: 0px;
+      min-width: 35px;
+      .selected {
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+        min-width: 30px;
+        font-size: 12px;
+        color: $groupInputColor;
+        background: $groupInputBgColor;
+        border: solid 1px $groupInputBorderColor;
+        .icon {
+          float: right;
+          position: relative;
+          color: $groupInputColor;
+          line-height: 0.75;
+          &.up {
+            // top: -2px;
+          }
+        }
+      }
+      ul {
+        list-style-type: none;
+        padding-left: 0px;
+        font-size: 12px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        margin-top: 0;
+        border-top: 0;
+        li {
+          cursor: pointer;
+          padding: 5px 12px;
+          line-height: 2;
+          color: $groupInputColor;
+          &:nth-child(even) {
+            background: $groupInputDropDownEven;
+          }
+          &:nth-child(odd) {
+            background: $groupInputDropDownOdd;
+          }
+          &:last-child {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

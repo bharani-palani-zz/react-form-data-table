@@ -1,0 +1,85 @@
+.documentation {
+  display: grid;
+  grid-template-columns: 230px auto;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  min-height: 100vh;
+  * {
+    outline: 0;
+  }
+  .overflowHidden {
+    overflow: hidden;
+    background: #222;
+  }
+  .code {
+    margin: 10px 5px;
+    color: #aaa;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 2px 5px #000;
+    border: solid 1px #555;
+    border-radius: 5px;
+  }
+  .infoDiv {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    column-gap: 5px;
+    color: #aaa;
+    padding: 5px 0;
+  }
+  .btn {
+    border: solid 1px #eee;
+    background: #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .heading {
+    background: #aaa;
+    margin: 0;
+    padding: 10px;
+    color: #222;
+  }
+  .brand {
+    background: #aaa;
+    margin: 0;
+    padding: 10px 0;
+    color: #222;
+    text-shadow: 1px 1px 1px #ddd;
+  }
+  .doc {
+    background: #222;
+    margin: 0;
+    padding: 10px;
+    color: #aaa;
+    border-radius: 20px;
+    border: solid 1px #aaa;
+    margin: 10px;
+  }
+  .pre {
+    border-radius: 5px;
+  }
+  .sideBar {
+    background: #222;
+    color: #aaa;
+    ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0;
+      li {
+        padding: 5px 10px;
+        a {
+          color: #aaa;
+          text-decoration: none;
+        }
+        &.active {
+          background: #aaa;
+          a {
+            color: #222;
+          }
+        }
+      }
+    }
+  }
+}

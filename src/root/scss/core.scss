@@ -1,0 +1,7 @@
+@mixin core() {
+  padding: 5px;
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
