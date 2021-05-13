@@ -11,12 +11,12 @@ const SideBar = props => {
 
   return (
     <div className="sideBar">
-      <h3 align="center" className="brand">
-        react-form-data-table
-      </h3>
-      <h4 align="center" className="doc">
-        Documentation
+      <h4 align="center">
+        <Link to="/" className="brand">{`<ReactFormDataTable />`}</Link>
       </h4>
+      <h5 align="center" className="doc">
+        Documentation
+      </h5>
       <ul>
         {menus.map((menu, i) => (
           <li key={i} className={splitLocation[1] === menu.href.replace("/","") ? "active" : ""}>

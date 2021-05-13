@@ -18,7 +18,7 @@ const SimpleDataTable = props => {
   return (
     <>
       <div className="overflowHidden">
-        <h3 className="heading">Simple Data Table</h3>
+        <h4 className="heading">Simple Data Table</h4>
         <pre className="code">
           {`
         <ReactFormDataTable
@@ -34,7 +34,7 @@ const SimpleDataTable = props => {
         </div>
         <ReactFormDataTable
           data={dbData}
-          theme={!toggle ? "dark" : "light"}
+          theme={toggle ? "dark" : "light"}
           cellWidth="18rem"
         />
       </div>
