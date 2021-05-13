@@ -1,0 +1,35 @@
+@mixin utility() {
+  .floatRight {
+    float: right !important;
+  }
+  .floatLeft {
+    float: left !important;
+  }
+  .txtRight {
+    text-align: right !important;
+  }
+  .txtLeft {
+    text-align: left !important;
+  }
+  .txtCenter {
+    text-align: center !important;
+  }
+  .txtSuccess {
+    color: $success;
+  }
+  .txtError {
+    color: $error;
+  }
+  .txtWarning {
+    color: $warning;
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .hide {
+    display: none !important;
+  }
+  .show {
+    display: block !important;
+  }
+}

@@ -1,0 +1,16 @@
+@mixin scroll-bar($scrollBarBgColor, $scrollBarThumbColor) {
+    ::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+      background: $scrollBarBgColor;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: $scrollBarThumbColor;
+      -webkit-border-radius: 1ex;
+    }
+  
+    ::-webkit-scrollbar-corner {
+      background: $scrollBarThumbColor
+    }
+}

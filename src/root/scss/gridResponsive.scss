@@ -1,0 +1,11 @@
+@mixin grid-responsive() {
+  .grid-responsive {
+    min-height: 0.01%;
+    overflow-x: auto;
+    overflow-y: auto;
+    .grid-container {
+      margin-bottom: 15px;
+    }
+    @content
+  }
+}

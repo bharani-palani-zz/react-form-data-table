@@ -1,0 +1,132 @@
+@import "./mediaQuery";
+@import "./biGrid";
+@import "./header";
+@import "./responsiveGrid";
+@import "./groupInput";
+@import "./footer";
+@import "./radioComponent";
+@import "./utility";
+@import "./errorWrapper";
+@import "./totalColumn";
+@import "./htmlIcon";
+@import "./filterSelectComponent";
+@import "./checkBoxComponent";
+@import "./scrollBar";
+@import "./tooltipContainer";
+@import "./dateTimeSelector";
+@import "./inputText";
+@import "./keyFrameRotation";
+@import "./gridResponsive";
+@import "./core";
+@import "./defaultLabel";
+@import "./noRecords";
+
+@mixin wrapped-in(
+  $bodyBackGroundColor,
+  $defaultLabelColor,
+  $biGridHeadingColor,
+  $biGridHeadingBackGroundColor,
+  $biGridHeadingBorderColor,
+  $groupInputColor,
+  $groupInputBgColor,
+  $groupInputBorderColor,
+  $groupInputDropDownOdd,
+  $groupInputDropDownEven,
+  $headerColor,
+  $headerBg,
+  $headerBorderColor,
+  $dateTimeSelectorBg,
+  $dateTimeSelectorColor,
+  $dateTimeSelectorBorder,
+  $dateTimeSelectorDropDownBg,
+  $dateTimeSelectorDropDownBorderColor,
+  $dateTimeSelectorDropDownBgColorSelected,
+  $dateTimeSelectorDropDownColorSelected,
+  $radioComponentLabelColor,
+  $radioComponentOusideCircleColor,
+  $radioComponentInsideCircleColor,
+  $inputColor,
+  $inputBgColor,
+  $inputBorderColor,
+  $filterSelectComponentBgColor,
+  $filterSelectComponentColor,
+  $filterSelectComponentBorderColor,
+  $filterSelectComponentDropDownBgColorSelected,
+  $filterSelectComponentDropDownColorSelected,
+  $footerLinkColor,
+  $footerLinkActiveBorderColor,
+  $footerLinkActiveBgColor,
+  $footerSubmitBtnColor,
+  $footerSubmitBtnBgColor,
+  $footerSubmitBtnBorderColor,
+  $noRecordsColor,
+  $noRecordsBgColor,
+  $noRecordsBorderColor,
+  $scrollBarBgColor,
+  $scrollBarThumbColor,
+  $errorWrapperColor
+) {
+  background: $bodyBackGroundColor;
+  font-family: sans-serif;
+  @include core();
+  @include keyframe-rotation();
+  @include default-label($defaultLabelColor);
+  @include bi-grid(
+    $biGridHeadingColor,
+    $biGridHeadingBackGroundColor,
+    $biGridHeadingBorderColor
+  );
+  @include no-records(
+    $noRecordsColor,
+    $noRecordsBgColor,
+    $noRecordsBorderColor
+  );
+  @include grid-responsive() {
+    @include responsive-grid();
+    @include header($headerColor, $headerBg, $headerBorderColor);
+  }
+  @include group-input(
+    $groupInputColor,
+    $groupInputBgColor,
+    $groupInputBorderColor,
+    $groupInputDropDownOdd,
+    $groupInputDropDownEven
+  );
+  @include footer(
+    $footerLinkColor,
+    $footerLinkActiveBorderColor,
+    $footerLinkActiveBgColor,
+    $footerSubmitBtnColor,
+    $footerSubmitBtnBgColor,
+    $footerSubmitBtnBorderColor
+  );
+  @include total-column();
+  @include radio-component(
+    $radioComponentLabelColor,
+    $radioComponentOusideCircleColor,
+    $radioComponentInsideCircleColor
+  );
+  @include utility();
+  @include error-wrapper($errorWrapperColor);
+  @include html-icon();
+  @include filter-select-component(
+    $filterSelectComponentBgColor,
+    $filterSelectComponentColor,
+    $filterSelectComponentBorderColor,
+    $filterSelectComponentDropDownBgColorSelected,
+    $filterSelectComponentDropDownColorSelected  
+  );
+  @include checkbox-component();
+  @include scroll-bar($scrollBarBgColor, $scrollBarThumbColor);
+  @include input-text($inputColor, $inputBgColor, $inputBorderColor);
+  @include tooltip-container();
+  @include date-time-selector(
+    $dateTimeSelectorBg,
+    $dateTimeSelectorColor,
+    $dateTimeSelectorBorder,
+    $dateTimeSelectorDropDownBg,
+    $dateTimeSelectorDropDownBorderColor,
+    $dateTimeSelectorDropDownBgColorSelected,
+    $dateTimeSelectorDropDownColorSelected
+  );
+}

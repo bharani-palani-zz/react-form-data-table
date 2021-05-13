@@ -1,0 +1,58 @@
+@mixin checkbox-component() {
+  .checkBoxComponent {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      left: 5px;
+      z-index: 1;
+      &:checked {
+        ~ {
+          .checkmark {
+            background-color: $dim-white; // set theme
+            &:after {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      background-color: $dim-white; // set theme
+      border-radius: 3px;
+      border: solid 1px $light-grey;
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+    }  
+    .checkmark {
+      &:after {
+        left: 6px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid $light-black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@mixin bi-grid($biGridHeadingColor, $biGridHeadingBackGroundColor, $biGridHeadingBorderColor) {
+  .biGrid {
+    display: grid;
+    word-wrap: break-word;
+    word-break: break-all;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+    margin-bottom: 5px;
+    .heading {
+      color: $biGridHeadingColor;
+      background: $biGridHeadingBackGroundColor;
+      padding: 10px 6px;
+      border-radius: 5px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: solid 1px $biGridHeadingBorderColor;
+      font-size: 12px;
+    }
+  }
+}

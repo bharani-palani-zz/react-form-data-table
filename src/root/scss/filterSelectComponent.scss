@@ -1,0 +1,104 @@
+@mixin filter-select-component(
+  $filterSelectComponentBgColor,
+  $filterSelectComponentColor,
+  $filterSelectComponentBorderColor,
+  $filterSelectComponentDropDownBgColorSelected,
+  $filterSelectComponentDropDownColorSelected
+) {
+  .filterSelectComponent {
+    position: relative;
+    user-select: none;
+    color: $filterSelectComponentColor;
+    .selected {
+      display: grid;
+      grid-template-columns: auto 20px;
+      border-radius: 5px;
+      position: relative;
+      height: 35px;
+      line-height: 35px;
+      font-weight: 400;
+      border: solid 1px $filterSelectComponentBorderColor;
+      background: $filterSelectComponentBgColor;
+      color: $filterSelectComponentColor;
+      .caretIcon {
+        color: $filterSelectComponentColor;
+        transition: transform 0.2s ease-in-out;
+        &.up {
+          transform: rotate(0deg);
+        }
+        &.down {
+          transform: rotate(-90deg);
+        }
+      }
+      &.yes {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      &.no {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      .string {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        padding: 0 5px;
+        text-align: center;
+      }
+    }
+    .wrapper {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      .searchContent {
+        position: relative;
+        .inputText {
+          border-radius: 0;
+          padding-left: 5px;
+          padding-right: 25px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          border-left: solid 1px $filterSelectComponentBorderColor;
+          border-right: solid 1px $filterSelectComponentBorderColor;
+          border-bottom: 0;
+          border-top: 0;
+        }
+        .icon {
+          position: absolute;
+          top: 13px;
+          right: 0;
+          cursor: pointer;
+          color: $black-9;
+        }
+      }
+      .listWrapper {
+        background: $filterSelectComponentBgColor;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: solid 1px $filterSelectComponentBorderColor;
+        padding: 0px 5px 5px 0px;
+        .selectedSingle {
+          background: $filterSelectComponentDropDownBgColorSelected;
+          color: $filterSelectComponentDropDownColorSelected;
+        }
+        ul {
+          padding-left: 0;
+          list-style: none;
+          max-height: 204px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          margin-bottom: 0;
+          margin-top: 0;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          li {
+            cursor: pointer;
+            padding: 9px 5px;
+            color: $filterSelectComponentColor;
+          }
+        }
+      }
+    }
+  }
+}

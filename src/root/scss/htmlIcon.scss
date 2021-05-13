@@ -1,0 +1,36 @@
+@mixin html-icon() {
+  .htmlIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    color: $white;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    user-select: none;
+    line-height: 1.2;
+    &.rotate {
+      animation: rotation 2s infinite linear;
+      font-size: 25px;
+    }
+    &.default {
+      background: transparent;
+      color: $light-black; // set theme
+      font-size: 14px;
+      display: inline;
+    }
+    &.success {
+      background: $success;
+    }
+    &.error {
+      background: $error;
+    }
+    &.warning {
+      background: $warning;
+    }
+    &.tilt-45 {
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -1,0 +1,111 @@
+/**
+* Application: react-form-data-table
+* Author: Bharani Palani
+* Email: barani.potshot@gmail.com
+* Documentation: https://bharani.tech/reactApplications/react-form-data-table
+**/
+@import "./variables";
+@import "./wrappedIn";
+
+$light: (
+  bodyBackGroundColor: $white,
+  defaultLabelColor: $black-2,
+  biGridHeadingColor: $black,
+  biGridHeadingBackGroundColor: $white,
+  biGridHeadingBorderColor: $light-white,
+  groupInputColor: $black,
+  groupInputBgColor: $white,
+  groupInputBorderColor: $light-white,
+  groupInputDropDownOdd: #f1f1f1,
+  groupInputDropDownEven: #f9f9f9,
+  headerColor: $light-black, 
+  headerBg: $dim-white,
+  headerBorderColor: $light-white,
+  dateTimeSelectorBg: $white,
+  dateTimeSelectorColor: $light-black,
+  dateTimeSelectorBorder: $light-white,
+  dateTimeSelectorDropDownBg: $white,
+  dateTimeSelectorDropDownBorderColor: $dim-white,
+  dateTimeSelectorDropDownBgColorSelected: $light-white,
+  dateTimeSelectorDropDownColorSelected: $black-2,
+  radioComponentLabelColor: $black-2,
+  radioComponentOusideCircleColor: $light-white, 
+  radioComponentInsideCircleColor: $black-7,
+  inputColor: $black-2, 
+  inputBgColor: $white, 
+  inputBorderColor: $light-white,
+  filterSelectComponentBgColor: $white,
+  filterSelectComponentColor: $black-2,
+  filterSelectComponentBorderColor: $light-white,
+  filterSelectComponentDropDownBgColorSelected: $dim-white,
+  filterSelectComponentDropDownColorSelected: $black-2,
+  footerLinkColor: $black-2,
+  footerLinkActiveBorderColor: $light-white,
+  footerLinkActiveBgColor: $dim-white,
+  footerSubmitBtnColor: $black-2,
+  footerSubmitBtnBgColor: $light-white,
+  footerSubmitBtnBorderColor: $light-white,
+  noRecordsColor: $black-2,
+  noRecordsBgColor: $dim-white,
+  noRecordsBorderColor: $light-white,
+  scrollBarBgColor: $white, 
+  scrollBarThumbColor: $light-white,
+  errorWrapperColor: $black-2
+);
+
+$dark: (
+  bodyBackGroundColor: $black-2,
+  defaultLabelColor: $light-grey,
+  biGridHeadingColor: $light-grey,
+  biGridHeadingBackGroundColor: $black-2,
+  biGridHeadingBorderColor: $black-5,
+  groupInputColor: $light-grey,
+  groupInputBgColor: $black-2,
+  groupInputBorderColor: $black-5,
+  groupInputDropDownOdd: $black-4,
+  groupInputDropDownEven: $black-3,
+  headerColor: $light-grey, 
+  headerBg: $black-2,
+  headerBorderColor: $black-5,
+  dateTimeSelectorBg: $black-2,
+  dateTimeSelectorColor: $light-grey,
+  dateTimeSelectorBorder: $black-5,
+  dateTimeSelectorDropDownBg: $black-2,
+  dateTimeSelectorDropDownBorderColor: $black-5,
+  dateTimeSelectorDropDownBgColorSelected: $light-grey,
+  dateTimeSelectorDropDownColorSelected: $black-2,
+  radioComponentLabelColor: $light-grey,
+  radioComponentOusideCircleColor: $light-grey, 
+  radioComponentInsideCircleColor: $black-2,
+  inputColor: $light-grey, 
+  inputBgColor: $black-2,
+  inputBorderColor: $black-5,
+  filterSelectComponentBgColor: $black-2,
+  filterSelectComponentColor: $light-grey,
+  filterSelectComponentBorderColor: $black-5,
+  filterSelectComponentDropDownBgColorSelected: $light-grey,
+  filterSelectComponentDropDownColorSelected: $black-2,
+  footerLinkColor: $light-grey,
+  footerLinkActiveBorderColor: $black-5,
+  footerLinkActiveBgColor: $black-2,
+  footerSubmitBtnColor: $light-white,
+  footerSubmitBtnBgColor: $black-2,
+  footerSubmitBtnBorderColor: $black-5,
+  noRecordsColor: $light-white,
+  noRecordsBgColor: $black-2,
+  noRecordsBorderColor: $black-5,
+  scrollBarBgColor: $black-2, 
+  scrollBarThumbColor: $black-5,
+  errorWrapperColor: $light-grey
+);
+
+.react-form-data-table {
+  @include wrapped-in($light...);
+  &.light {
+    @include wrapped-in($light...);
+  }
+  &.dark {
+    @include wrapped-in($dark...);
+  }
+
+}
