@@ -9,13 +9,13 @@ class Wrapper extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={DemoDataTable} />
+        <Route exact path="/" component={() => <DemoDataTable data={sampleData} />} />
         {menus.map((menu, i) => {
           return (
             <Route key={i} exact path={menu.href} component={() => <DemoDataTable data={sampleData} />} />
           );
         })}
-        <Route path="*" component={DemoDataTable} />
+        <Route path="*" component={() => <DemoDataTable data={sampleData} />} />
       </Switch>
     );
   }

@@ -24,8 +24,8 @@ function ReactFormDataTable(props) {
   const cellWidth = props.cellWidth;
   const theme = props.theme;
   const [rowElements, setRowElements] = useState([]);
-  const [dbData, setDbData] = useState((props.data.length && props.data) || []);
-  const dbDataBackup = [...props.data];
+  const [dbData, setDbData] = useState((props.data && props.data.length && props.data) || []);
+  const dbDataBackup = props.data && props.data.length && [...props.data];
   const TableRows = dbDataBackup.length > 0 ? Object.keys(dbDataBackup[0]) : [];
   const TableAliasRows =
     props.TableAliasRows.length > 0
