@@ -24,10 +24,15 @@ function ReactFormDataTable(props) {
   const cellWidth = props.cellWidth;
   const theme = props.theme;
   const [rowElements, setRowElements] = useState([]);
-  const [dbData, setDbData] = useState((props.data && props.data) || []);
-  const TableRows = dbData.length > 0 ? Object.keys(dbData[0]) : [];
-  const TableAliasRows = props.TableAliasRows.length > 0 ? props.TableAliasRows : (dbData.length > 0 ? Object.keys(dbData[0]) : []);
-  const dbDataBackup = (props.data && [...props.data]) || [];
+  const [dbData, setDbData] = useState((props.data.length && props.data) || []);
+  const dbDataBackup = [...props.data];
+  const TableRows = dbDataBackup.length > 0 ? Object.keys(dbDataBackup[0]) : [];
+  const TableAliasRows =
+    props.TableAliasRows.length > 0
+      ? props.TableAliasRows
+      : dbDataBackup.length > 0
+      ? Object.keys(dbDataBackup[0])
+      : [];
   const [deleteData, setDeleteData] = useState([]);
   const [loader, setLoader] = useState(false);
   const [btnLoader, setBtnLoader] = useState(false);
@@ -56,7 +61,9 @@ function ReactFormDataTable(props) {
     let rows =
       props.rowElements.length > 0
         ? props.rowElements
-        : Object.keys(dbData.length > 0 ? Object.keys(dbData[0]) : []).map(v => "label");
+        : Object.keys(dbData.length > 0 ? Object.keys(dbData[0]) : []).map(
+            v => "label"
+          );
     rows = rows.map(row => {
       return new Promise((resolve, reject) => {
         resolve(row);
@@ -436,7 +443,7 @@ function ReactFormDataTable(props) {
         conditions.some(c => c(f)) && !deleteData.includes(f[TableRows[0]])
       );
     });
-    setDbData([...filtered]);
+    setDbData(filtered);
   };
 
   const onRecordsChange = count => {
@@ -446,6 +453,7 @@ function ReactFormDataTable(props) {
   const getPageCounts = () => {
     let start = (currentPage - 1) * recordsPerPage + 1;
     start = start > 0 ? start : 0;
+    start = dbData.length > 0 ? start : 0; // mark "0" for no results
     const end =
       dbData.length >= currentPage * recordsPerPage
         ? currentPage * recordsPerPage
@@ -481,11 +489,16 @@ function ReactFormDataTable(props) {
             <div
               style={{
                 ...(apiInstance.ajaxApiUrl && {
-                  gridTemplateColumns: `50px repeat(${TableRows.length -
-                    1}, ${cellWidth})`
+                  gridTemplateColumns:
+                    TableRows.length > 0
+                      ? `50px repeat(${TableRows.length - 1}, ${cellWidth})`
+                      : "50px auto"
                 }),
                 ...(!apiInstance.ajaxApiUrl && {
-                  gridTemplateColumns: `repeat(${TableRows.length}, ${cellWidth})`
+                  gridTemplateColumns:
+                    TableRows.length > 0
+                      ? `repeat(${TableRows.length}, ${cellWidth})`
+                      : "auto"
                 })
               }}
               className={`grid-container responsive-grid`}
@@ -634,11 +647,11 @@ function ReactFormDataTable(props) {
 
 ReactFormDataTable.propTypes = {
   Table: PropTypes.string,
-  TableAliasRows: PropTypes.array.isRequired,
-  data: PropTypes.array.isRequired,
+  TableAliasRows: PropTypes.array,
+  data: PropTypes.array,
   showTotal: PropTypes.array,
   rowKeyUp: PropTypes.string,
-  rowElements: PropTypes.array.isRequired,
+  rowElements: PropTypes.array,
   insertCloneData: PropTypes.array,
   showTooltipFor: PropTypes.array,
   onTableUpdate: PropTypes.func,

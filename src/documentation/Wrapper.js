@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import { menus } from "./menuComponent";
 import DemoDataTable from "./tables/DemoDataTable";
 import sampleData from "../mockData";
-console.log(sampleData)
 
 class Wrapper extends React.Component {
   render() {
