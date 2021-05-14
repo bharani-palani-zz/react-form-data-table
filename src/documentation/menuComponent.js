@@ -2,7 +2,7 @@ import sampleData from "../mockData";
 
 const menus = [
   {
-    href: "/simpleDataTable",
+    href: "/react-form-data-table/simpleDataTable",
     label: "Simple Data Table",
     data: sampleData.map(s => ({
       id: s.id,
@@ -12,7 +12,7 @@ const menus = [
     }))
   },
   {
-    href: "/longTable",
+    href: "/react-form-data-table/longTable",
     label: "Long Table",
     data: sampleData.map(s => ({
       id: s.id,
@@ -24,7 +24,7 @@ const menus = [
     }))
   },
   {
-    href: "/aliasHeaders",
+    href: "/react-form-data-table/aliasHeaders",
     label: "Alias Headers",
     data: sampleData.map(s => ({
       id: s.id,
@@ -48,7 +48,7 @@ const menus = [
     ]
   },
   {
-    href: "/paginationConfig",
+    href: "/react-form-data-table/paginationConfig",
     label: "Pagination Config",
     data: sampleData.map(s => ({
       id: s.id,
@@ -67,7 +67,7 @@ const menus = [
     }
   },
   {
-    href: "/noPagination",
+    href: "/react-form-data-table/noPagination",
     label: "No Pagination / Search",
     data: sampleData.map(s => ({
       id: s.id,
