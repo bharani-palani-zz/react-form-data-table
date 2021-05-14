@@ -15,7 +15,7 @@
 - Add a custom class name to change the style as you wish
 
 ### A Demo is always awesome
-[https://bharani-palani.github.io/react-form-data-table/simpleDataTable](https://bharani-palani.github.io/react-form-data-table/simpleDataTable)
+[https://bharani-palani.github.io/react-form-data-table](https://bharani-palani.github.io/react-form-data-table)
 
 ### Usage
 ```html
