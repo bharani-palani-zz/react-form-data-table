@@ -7,7 +7,6 @@ const AliasHeaders = props => {
   const {
     config,
     Table,
-    TableRows,
     TableAliasRows,
     rowElements,
     data,

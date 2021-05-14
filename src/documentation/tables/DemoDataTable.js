@@ -1,24 +1,18 @@
 import React, { useState } from "react";
-import { simpleTable } from "../../mockData";
 import ReactFormDataTable from "../../root/ReactFormDataTable";
 
-const SimpleDataTable = props => {
+const DemoDataTable = props => {
+  const {data} = props;
   const [toggle, setToggle] = useState(false);
-  const {
-    config,
-    Table,
-    TableRows,
-    TableAliasRows,
-    rowElements,
-    dbData,
-    showTooltipFor,
-    apiInstance
-  } = simpleTable;
-
   return (
     <>
       <div className="overflowHidden">
-        <h4 className="heading">Simple Data Table</h4>
+        <div className="infoDiv">
+          <h4 className="heading">Simple Data Table</h4>
+          <button className="btn" onClick={() => setToggle(!toggle)}>
+            Toggle Theme
+          </button>
+        </div>
         <pre className="code">
           {`
         <ReactFormDataTable
@@ -28,12 +22,8 @@ const SimpleDataTable = props => {
         />
         `}
         </pre>
-        <div className="infoDiv">
-            <div />
-            <button className="btn" onClick={() => setToggle(!toggle)}>Toggle Theme</button>
-        </div>
         <ReactFormDataTable
-          data={dbData}
+          data={data}
           theme={toggle ? "dark" : "light"}
           cellWidth="18rem"
         />
@@ -42,4 +32,4 @@ const SimpleDataTable = props => {
   );
 };
 
-export default SimpleDataTable;
+export default DemoDataTable;

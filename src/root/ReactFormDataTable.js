@@ -25,8 +25,8 @@ function ReactFormDataTable(props) {
   const theme = props.theme;
   const [rowElements, setRowElements] = useState([]);
   const [dbData, setDbData] = useState((props.data && props.data) || []);
-  const TableRows = props.data && props.data.length > 0 ? Object.keys(dbData[0]) : props.TableRows;
-  const TableAliasRows =  props.TableAliasRows.length > 0 ? props.TableAliasRows : Object.keys(dbData[0]);
+  const TableRows = dbData.length > 0 ? Object.keys(dbData[0]) : [];
+  const TableAliasRows = props.TableAliasRows.length > 0 ? props.TableAliasRows : (dbData.length > 0 ? Object.keys(dbData[0]) : []);
   const dbDataBackup = (props.data && [...props.data]) || [];
   const [deleteData, setDeleteData] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -56,7 +56,7 @@ function ReactFormDataTable(props) {
     let rows =
       props.rowElements.length > 0
         ? props.rowElements
-        : Object.keys(dbData[0]).map(v => "label");
+        : Object.keys(dbData.length > 0 ? Object.keys(dbData[0]) : []).map(v => "label");
     rows = rows.map(row => {
       return new Promise((resolve, reject) => {
         resolve(row);
@@ -79,11 +79,6 @@ function ReactFormDataTable(props) {
 
   useEffect(() => {
     let array = [];
-    if (!dbData.length) {
-      array.push({
-        error: `The "data" props is required.`
-      });
-    }
     if (dbData.length) {
       if (dbData.map(o => Object.keys(o).length).every(v => v === dbData[0])) {
         array.push({
@@ -191,7 +186,8 @@ function ReactFormDataTable(props) {
     const formdata = new FormData();
     formdata.append(apiInstance.payloadKeyName, JSON.stringify(postData));
 
-    Axios.create(apiInstance.create)[apiInstance.ajaxType](apiInstance.ajaxApiUrl, formdata)
+    Axios.create(apiInstance.create)
+      [apiInstance.ajaxType](apiInstance.ajaxApiUrl, formdata)
       .then(response => {
         onAjaxCallBack && onAjaxCallBack(response);
         if (insertData.length > 0) {
@@ -638,7 +634,6 @@ function ReactFormDataTable(props) {
 
 ReactFormDataTable.propTypes = {
   Table: PropTypes.string,
-  TableRows: PropTypes.array.isRequired,
   TableAliasRows: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
   showTotal: PropTypes.array,
@@ -656,7 +651,6 @@ ReactFormDataTable.propTypes = {
 };
 ReactFormDataTable.defaultProps = {
   Table: "My table",
-  TableRows: [],
   TableAliasRows: [],
   showTotal: [],
   rowKeyUp: "",
@@ -689,11 +683,11 @@ ReactFormDataTable.defaultProps = {
   apiInstance: {
     create: {
       baseURL: "",
-      headers: {},
+      headers: {}
     },
     ajaxApiUrl: "",
     payloadKeyName: "payload",
-    ajaxType: "post",
+    ajaxType: "post"
   }
 };
 

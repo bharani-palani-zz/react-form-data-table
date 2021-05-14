@@ -2,19 +2,21 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { menus } from "./menuComponent";
-import SimpleDataTable from "./tables/SimpleDataTable";
+import DemoDataTable from "./tables/DemoDataTable";
+import sampleData from "../mockData";
+console.log(sampleData)
 
 class Wrapper extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={SimpleDataTable} />
+        <Route exact path="/" component={DemoDataTable} />
         {menus.map((menu, i) => {
           return (
-            <Route key={i} exact path={menu.href} component={menu.component} />
+            <Route key={i} exact path={menu.href} component={() => <DemoDataTable data={sampleData} />} />
           );
         })}
-        <Route path="*" component={SimpleDataTable} />
+        <Route path="*" component={DemoDataTable} />
       </Switch>
     );
   }

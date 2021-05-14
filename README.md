@@ -15,7 +15,7 @@
 - Add a custom class name to change the style as you wish
 
 ### A Demo is always awesome
-[https://bharani.tech/react/react-form-data-table](https://bharani.tech/react/react-form-data-table)
+[https://bharani-palani.github.io/react-form-data-table](https://bharani-palani.github.io/react-form-data-table)
 
 ### Usage
 ```html
@@ -32,7 +32,6 @@
 Property  | Type | Default | IsRequired | Sample
 ----------- | -------| -------- | ------------- | ---------
 Table  | String | My table | No | Employee Table
-TableRows  | Array  | [ ] | Yes | [id, name, age, salary]
 TableAliasRows | Array | [ ] | Yes | [ID, Name, Age, Salary]
 data | Array | [ ] | Yes | [{id: 10000, name: "John", age: 21, salary: 50000},{id: 10003, name: "Travolta", age: 28, salary: 60000}]
 showTotal | Array | [ ] | No | [salary]
