@@ -27,9 +27,9 @@ function ReactFormDataTable(props) {
   const [dbData, setDbData] = useState((props.data && props.data.length && props.data) || []);
   const dbDataBackup = props.data && props.data.length && [...props.data];
   const TableRows = dbDataBackup.length > 0 ? Object.keys(dbDataBackup[0]) : [];
-  const TableAliasRows =
-    props.TableAliasRows.length > 0
-      ? props.TableAliasRows
+  const aliasHeaders =
+    props.aliasHeaders.length > 0
+      ? props.aliasHeaders
       : dbDataBackup.length > 0
       ? Object.keys(dbDataBackup[0])
       : [];
@@ -503,7 +503,7 @@ function ReactFormDataTable(props) {
               }}
               className={`grid-container responsive-grid`}
             >
-              {TableAliasRows.map((heading, i) => (
+              {aliasHeaders.map((heading, i) => (
                 <div
                   key={`key-${i}`}
                   onClick={() => onSort(TableRows[i])}
@@ -548,7 +548,7 @@ function ReactFormDataTable(props) {
                                 updateDbData(index, data, primaryKey);
                               }}
                               index={{ i, j: r }}
-                              placeholder={TableAliasRows[j]}
+                              placeholder={aliasHeaders[j]}
                               value={d[r]}
                               element={rowElements[j]}
                               showIncrement={dbData.length - 1 === i}
@@ -647,7 +647,7 @@ function ReactFormDataTable(props) {
 
 ReactFormDataTable.propTypes = {
   Table: PropTypes.string,
-  TableAliasRows: PropTypes.array,
+  aliasHeaders: PropTypes.array,
   data: PropTypes.array,
   showTotal: PropTypes.array,
   rowKeyUp: PropTypes.string,
@@ -664,7 +664,7 @@ ReactFormDataTable.propTypes = {
 };
 ReactFormDataTable.defaultProps = {
   Table: "My table",
-  TableAliasRows: [],
+  aliasHeaders: [],
   showTotal: [],
   rowKeyUp: "",
   rowElements: [],
