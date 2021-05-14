@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-form-data-table/static/css/main.c4fd8914.chunk.css",
-    "main.js": "/react-form-data-table/static/js/main.171e184b.chunk.js",
-    "main.js.map": "/react-form-data-table/static/js/main.171e184b.chunk.js.map",
+    "main.js": "/react-form-data-table/static/js/main.a26d77f7.chunk.js",
+    "main.js.map": "/react-form-data-table/static/js/main.a26d77f7.chunk.js.map",
     "runtime-main.js": "/react-form-data-table/static/js/runtime-main.cbbaf6ed.js",
     "runtime-main.js.map": "/react-form-data-table/static/js/runtime-main.cbbaf6ed.js.map",
     "static/js/2.f9f671bf.chunk.js": "/react-form-data-table/static/js/2.f9f671bf.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cbbaf6ed.js",
     "static/js/2.f9f671bf.chunk.js",
     "static/css/main.c4fd8914.chunk.css",
-    "static/js/main.171e184b.chunk.js"
+    "static/js/main.a26d77f7.chunk.js"
   ]
 }
