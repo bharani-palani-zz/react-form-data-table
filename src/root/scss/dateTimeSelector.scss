@@ -18,9 +18,12 @@
     color: $dateTimeSelectorColor;
     &.date {
       grid-template-columns: repeat(5, auto);
+      margin: 1px;
     }
     &.dateTime {
       grid-template-columns: repeat(11, auto);
+      margin-left: 2px;
+      margin-right: 2px;
     }
     .selected {
       cursor: pointer;

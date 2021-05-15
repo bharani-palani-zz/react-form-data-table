@@ -20,6 +20,7 @@
 @import "./core";
 @import "./defaultLabel";
 @import "./noRecords";
+@import "./addRemove";
 
 @mixin wrapped-in(
   $bodyBackGroundColor,
@@ -64,9 +65,12 @@
   $noRecordsBorderColor,
   $scrollBarBgColor,
   $scrollBarThumbColor,
-  $errorWrapperColor
+  $errorWrapperColor,
+  $totalColumnColor,
+  $totalLabelColor
 ) {
   background: $bodyBackGroundColor;
+  transition: background .2s ease-in;
   font-family: sans-serif;
   @include core();
   @include keyframe-rotation();
@@ -85,6 +89,7 @@
     @include responsive-grid();
     @include header($headerColor, $headerBg, $headerBorderColor);
   }
+  @include add-remove();
   @include group-input(
     $groupInputColor,
     $groupInputBgColor,
@@ -100,7 +105,7 @@
     $footerSubmitBtnBgColor,
     $footerSubmitBtnBorderColor
   );
-  @include total-column();
+  @include total-column($totalColumnColor, $totalLabelColor);
   @include radio-component(
     $radioComponentLabelColor,
     $radioComponentOusideCircleColor,

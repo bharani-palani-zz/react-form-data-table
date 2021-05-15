@@ -31,6 +31,12 @@ const Wrapper = props => {
                 aliasHeaders={menu.aliasHeaders}
                 data={menu.data}
                 config={menu.config}
+                showTooltipFor={menu.showTooltipFor}
+                showTotal={menu.showTotal}
+                rowElements={menu.rowElements}
+                defaultValues={menu.defaultValues}
+                apiInstance={menu.apiInstance}
+                onTableUpdate={menu.onTableUpdate}
               />
             )}
           />

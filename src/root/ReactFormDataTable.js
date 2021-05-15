@@ -565,7 +565,7 @@ function ReactFormDataTable(props) {
                   )}
                   {showTotal && showTotal.length > 0 && (
                     <>
-                      <div className="textCenter">Total</div>
+                      <div className="textCenter totalLabel">Total</div>
                       {TableRows.slice(1).map((r, i) => {
                         const isTotalColumn =
                           showTotal.includes(r) ||

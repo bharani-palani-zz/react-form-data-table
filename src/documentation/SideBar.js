@@ -18,11 +18,11 @@ const SideBar = props => {
         Documentation
       </h5>
       <ul>
-        {menus.map((menu, i) => (
-          <li key={i} className={splitLocation[1] === menu.href.replace("/","") ? "active" : ""}>
+        {menus.map((menu, i) => {
+          return <li key={i} className={`${splitLocation[1]}/${splitLocation[2]}` === menu.href.replace("/","") ? "active" : ""}>
             <Link to={`${menu.href}`}>{menu.label}</Link>
           </li>
-        ))}
+        })}
       </ul>
     </div>
   );

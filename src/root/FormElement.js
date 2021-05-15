@@ -113,7 +113,7 @@ function FormElement(props) {
           return <div className="defaultLabel" {...rest}>{value}</div>;
         case "checkbox":
           return isPostable ? (
-            <>
+            <div className="addRemove">
               {showDecrement && (
                 <HtmlIcon
                   onClick={() => onDelete(index)}
@@ -134,7 +134,7 @@ function FormElement(props) {
                   />
                 </div>
               )}
-            </>
+            </div>
           ) : (
             <div className="defaultLabel" {...rest}>{value}</div>
           );
