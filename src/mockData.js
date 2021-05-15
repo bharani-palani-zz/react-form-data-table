@@ -709,7 +709,7 @@ let sampleData = [
   }
 ];
 const gender = ["Male", "Female"];
-const names = ["John", "Eric", "Denis", "Peter", "Sheethal", "Katy", "Trinity", "Kevin", "Zuckerberg", "Moris"];
+const names = ["Beverly", "Blair", "Carol", "Lynn", "Morgan", "Shannon", "Taylor", "Gayle", "Darcy", "Dorian"];
 const leadingZeros = number => {
   let num = Number(number);
   return num < 10 ? `0${num}` : num;
@@ -736,6 +736,7 @@ const randomNumber = (min, max) => {
 };
 sampleData = sampleData.map(s => ({
   id: s.id,
+  userId: s.userId, 
   name: names[randomNumber(0, 9)],
   title: s.title,
   body: s.body,

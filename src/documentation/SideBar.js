@@ -12,7 +12,7 @@ const SideBar = props => {
   return (
     <div className="sideBar">
       <h4 align="center">
-        <Link to="/" className="brand">{`<ReactFormDataTable />`}</Link>
+        <Link to="/react-form-data-table" className="brand">{`<ReactFormDataTable />`}</Link>
       </h4>
       <h5 align="center" className="doc">
         Documentation

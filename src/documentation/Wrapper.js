@@ -7,11 +7,18 @@ import DemoDataTable from "./tables/DemoDataTable";
 const Wrapper = props => {
   return (
     <Switch>
-      {/* <Route
+      <Route
         exact
         path="/"
-        component={() => <DemoDataTable data={sampleData} />}
-      /> */}
+        component={() => (
+          <DemoDataTable
+            name="Simple Data Table"
+            aliasHeaders={menus[0].aliasHeaders}
+            data={menus[0].data}
+            config={menus[0].config}
+          />
+        )}
+      />
       {menus.map((menu, i) => {
         return (
           <Route
@@ -20,6 +27,7 @@ const Wrapper = props => {
             path={menu.href}
             component={() => (
               <DemoDataTable
+                name={menu.label}
                 aliasHeaders={menu.aliasHeaders}
                 data={menu.data}
                 config={menu.config}
@@ -28,7 +36,17 @@ const Wrapper = props => {
           />
         );
       })}
-      {/* <Route path="*" component={() => <DemoDataTable data={sampleData} />} /> */}
+      <Route
+        path="*"
+        component={() => (
+          <DemoDataTable
+            name="Simple Data Table"
+            aliasHeaders={menus[0].aliasHeaders}
+            data={menus[0].data}
+            config={menus[0].config}
+          />
+        )}
+      />
     </Switch>
   );
 };

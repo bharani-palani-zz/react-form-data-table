@@ -1,7 +1,7 @@
 {
   "homepage": "https://bharani-palani.github.io/react-form-data-table",
   "name": "react-form-data-table",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "React component with form based data table, compromising all data table features with ajax and more..",
   "author": "Bharani Palani",
   "license": "MIT",

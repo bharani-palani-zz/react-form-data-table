@@ -8,7 +8,8 @@ const menus = [
       id: s.id,
       name: s.name,
       gender: s.gender,
-      dob: s.dob
+      dob: s.dob,
+      salary: s.salary
     }))
   },
   {
@@ -20,7 +21,8 @@ const menus = [
       gender: s.gender,
       dob: s.dob,
       salary: s.salary,
-      lastLogin: s.lastLogin
+      lastLogin: s.lastLogin,
+      userId: s.userId
     }))
   },
   {
@@ -54,7 +56,8 @@ const menus = [
       id: s.id,
       name: s.name,
       gender: s.gender,
-      dob: s.dob
+      dob: s.dob,
+      salary: s.salary,
     })),
     config: {
       footer: {
@@ -73,7 +76,8 @@ const menus = [
       id: s.id,
       name: s.name,
       gender: s.gender,
-      dob: s.dob
+      dob: s.dob,
+      salary: s.salary,
     })).filter((_,i) => i < 20),
     config: { footer: { pagination: {} } }
   }
