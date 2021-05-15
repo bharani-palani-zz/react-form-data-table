@@ -21,6 +21,7 @@ function ReactFormDataTable(props) {
   const defaultValues = props.defaultValues;
   const onTableUpdate = props.onTableUpdate;
   const onReFetchData = props.onReFetchData;
+  const showHeaders = props.showHeaders;
   const cellWidth = props.cellWidth;
   const theme = props.theme;
   const [rowElements, setRowElements] = useState([]);
@@ -503,7 +504,7 @@ function ReactFormDataTable(props) {
               }}
               className={`grid-container responsive-grid`}
             >
-              {aliasHeaders.map((heading, i) => (
+              {showHeaders && aliasHeaders.map((heading, i) => (
                 <div
                   key={`key-${i}`}
                   onClick={() => onSort(TableRows[i])}
@@ -647,6 +648,7 @@ function ReactFormDataTable(props) {
 
 ReactFormDataTable.propTypes = {
   Table: PropTypes.string,
+  showHeaders: PropTypes.bool,
   aliasHeaders: PropTypes.array,
   data: PropTypes.array,
   showTotal: PropTypes.array,
@@ -664,6 +666,7 @@ ReactFormDataTable.propTypes = {
 };
 ReactFormDataTable.defaultProps = {
   Table: "My table",
+  showHeaders: true,
   aliasHeaders: [],
   showTotal: [],
   rowKeyUp: "",
