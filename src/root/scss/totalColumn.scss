@@ -1,10 +1,14 @@
-@mixin total-column() {
+@mixin total-column($totalColumnColor, $totalLabelColor) {
+  .totalLabel {
+    color: $totalLabelColor;
+  }
   .totalColumn {
     border-bottom: double 3px;
     border-top: solid 1px;
     margin-top: 10px;
     font-size: 13px;
     padding: 5px 0;
+    color: $totalColumnColor;
     @include view-mobile {
       padding-left: 0;
       border-top: 0;

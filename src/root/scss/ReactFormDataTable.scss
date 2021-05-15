@@ -50,7 +50,9 @@ $light: (
   noRecordsBorderColor: $light-white,
   scrollBarBgColor: $white, 
   scrollBarThumbColor: $light-white,
-  errorWrapperColor: $black-2
+  errorWrapperColor: $black-2,
+  totalColumnColor: $black-2,
+  totalLabelColor: $black-2
 );
 
 $dark: (
@@ -96,7 +98,9 @@ $dark: (
   noRecordsBorderColor: $black-5,
   scrollBarBgColor: $black-2, 
   scrollBarThumbColor: $black-5,
-  errorWrapperColor: $light-grey
+  errorWrapperColor: $light-grey,
+  totalColumnColor: $light-grey,
+  totalLabelColor: $light-grey
 );
 
 .react-form-data-table {

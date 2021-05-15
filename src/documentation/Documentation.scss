@@ -5,6 +5,7 @@ $highLight: #ddd;
 $borderColor: #ddd;
 $red: #d60000;
 .documentation {
+  position: relative;
   display: grid;
   grid-template-columns: 230px auto;
   font-family: Arial, Helvetica, sans-serif;
@@ -35,6 +36,12 @@ $red: #d60000;
     padding-left: 25px;
     li {
       padding: 5px 10px;
+      &:first-child {
+        border-top-right-radius: 5px;
+      }
+      &:last-child {
+        border-bottom-right-radius: 5px;
+      }
       &.indend {
         padding-left: 35px;
       }
@@ -63,7 +70,7 @@ $red: #d60000;
   }
   .infoDiv {
     display: grid;
-    grid-template-columns: 68% 10% 10% 10%;
+    grid-template-columns: 69% 10% 10% 10%;
     column-gap: 3px;
     color: #aaa;
     align-items: baseline;
@@ -75,8 +82,9 @@ $red: #d60000;
     border-radius: 5px;
     height: 30px;
     cursor: pointer;
+    // box-shadow: 2px 2px 1px #000;
     &.active {
-      border: solid 2px $active;
+      font-weight: bold;
     }
   }
   .heading {
@@ -118,7 +126,13 @@ $red: #d60000;
           font-size: 14px;
         }
         &.active {
-          background: $highLight;
+          background: #fff;
+          border-top: solid 1px $highLight; 
+          border-bottom: solid 1px $highLight; 
+          border-right: solid 1px transparent;
+          &:after {
+            border: solid 1px red;
+          }
           a {
             color: #222;
           }
