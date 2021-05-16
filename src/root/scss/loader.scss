@@ -1,0 +1,10 @@
+@mixin loader($loaderColor1, $loaderColor2) {
+  .loader {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    animation: color-gradient 2s ease infinite;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+  }
+}

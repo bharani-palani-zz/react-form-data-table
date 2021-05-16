@@ -710,6 +710,7 @@ let sampleData = [
 ];
 const gender = ["Male", "Female"];
 const names = ["Beverly", "Blair", "Carol", "Lynn", "Morgan", "Shannon", "Taylor", "Gayle", "Darcy", "Dorian"];
+const contact = ["Mobile", "Land line", "Email"];
 const leadingZeros = number => {
   let num = Number(number);
   return num < 10 ? `0${num}` : num;
@@ -743,7 +744,8 @@ sampleData = sampleData.map(s => ({
   gender: gender[randomNumber(0, 1)],
   dob: randomDate(new Date(1980, 0, 1), new Date()),
   salary: randomNumber(10000, 60000),
-  lastLogin: randomDateTime(new Date(2015, 0, 1), new Date())
+  lastLogin: randomDateTime(new Date(2015, 0, 1), new Date()),
+  contact
 }));
 
 export default sampleData;

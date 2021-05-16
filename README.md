@@ -35,7 +35,7 @@ Table  | String | My table | No | Employee Table
 TableAliasRows | Array | [ ] | Yes | [ID, Name, Age, Salary]
 data | Array | [ ] | Yes | [{id: 10000, name: "John", age: 21, salary: 50000},{id: 10003, name: "Travolta", age: 28, salary: 60000}]
 showTotal | Array | [ ] | No | [salary]
-rowElements | Array | [ ] | No | [number, textbox, number, number] (Available form elements: number, textbox, textarea, checkbox, date, dateTime, fetch)
+rowElements | Array | [ ] | No | [number, textbox, number, number] (Available form elements: number, textbox, textarea, checkbox, date, dateTime, radio, multiChoice)
 insertCloneData | Array | [ ] | No | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
 showTooltipFor | Array | [ ] | No | [name]
 apiInstance | Object | | No |  { create: { baseURL: "", headers: {}, }, ajaxApiUrl: "", payloadKeyName: "payload", ajaxType: "post", ajaxButtonName: "Submit" }

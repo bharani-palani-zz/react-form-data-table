@@ -254,7 +254,8 @@ const menus = [
       gender: s.gender,
       dob: s.dob,
       salary: s.salary,
-      lastLogin: s.lastLogin
+      lastLogin: s.lastLogin,
+      // contact: s.contact
     })),
     defaultValues: [{ gender: "Male" }],
     config : {
@@ -279,7 +280,7 @@ const menus = [
       },
       "date",
       "number",
-      "dateTime"
+      "dateTime",
     ],
     apiInstance: {
       create: {
@@ -292,7 +293,8 @@ const menus = [
       ajaxButtonName: "Save"
     },
     onTableUpdate: () => {},
-    onAjaxCallBack: () => {}
+    onAjaxCallBack: () => {},
+    onReFetchData: () => {}
   }
 ];
 

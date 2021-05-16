@@ -21,6 +21,7 @@
 @import "./defaultLabel";
 @import "./noRecords";
 @import "./addRemove";
+@import "./loader";
 
 @mixin wrapped-in(
   $bodyBackGroundColor,
@@ -67,13 +68,16 @@
   $scrollBarThumbColor,
   $errorWrapperColor,
   $totalColumnColor,
-  $totalLabelColor
+  $totalLabelColor,
+  $loaderColor1, 
+  $loaderColor2
 ) {
   background: $bodyBackGroundColor;
   transition: background .2s ease-in;
   font-family: sans-serif;
   @include core();
   @include keyframe-rotation();
+  @include loader($loaderColor1, $loaderColor2);
   @include default-label($defaultLabelColor);
   @include bi-grid(
     $biGridHeadingColor,
