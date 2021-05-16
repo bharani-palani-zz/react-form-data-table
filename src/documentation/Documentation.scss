@@ -3,7 +3,6 @@ $active: #ccc;
 $color: #222;
 $highLight: #ddd;
 $borderColor: #ddd;
-$red: #d60000;
 .documentation {
   position: relative;
   display: grid;
@@ -32,10 +31,10 @@ $red: #d60000;
     font-family: Arial, Helvetica, sans-serif;
     border: solid 1px $highLight;
     border-radius: 5px;
-    margin-bottom: 0;
     padding-left: 25px;
     li {
       padding: 5px 10px;
+      word-break: break-all;
       &:first-child {
         border-top-right-radius: 5px;
       }
@@ -58,22 +57,17 @@ $red: #d60000;
     border: solid 1px $highLight;
     height: 30px;
   }
-  .note {
-    color: $red;
-    text-align: right;
-    font-size: 10px;
-    padding: 10px 0;
-    font-style: italic;
-  }
-  .asterisk {
-    color: $red;
-  }
   .infoDiv {
     display: grid;
-    grid-template-columns: 69% 10% 10% 10%;
+    grid-template-columns: 59% 10% 15% 15%;
     column-gap: 3px;
     color: #aaa;
     align-items: baseline;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .infoDiv {
+      grid-template-columns: 38% 10% 25% 25%;
+    }
   }
   .btn {
     border: solid 1px $highLight;

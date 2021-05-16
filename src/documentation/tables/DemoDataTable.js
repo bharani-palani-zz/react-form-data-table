@@ -12,7 +12,8 @@ const DemoDataTable = props => {
     rowElements,
     defaultValues,
     apiInstance,
-    onTableUpdate
+    onTableUpdate,
+    onAjaxCallBack
   } = props;
   const [toggle, setToggle] = useState(false);
   const [headers, setToggleHeaders] = useState(true);
@@ -60,67 +61,71 @@ const DemoDataTable = props => {
             ).substr(-50)}}`}
           </li>
           <li className="indend">
-            <b className="asterisk">* </b>theme="
+            theme="
             {`${toggle ? "dark" : "light"}`}"
           </li>
           {width && (
             <li className="indend">
-              <b className="asterisk">* </b>cellWidth="{`${width}`}rem"
+              cellWidth="{`${width}`}rem"
             </li>
           )}
           {aliasHeaders && (
             <li className="indend">
-              <b className="asterisk">* </b>aliasHeaders=
+              aliasHeaders=
               {`{${JSON.stringify(aliasHeaders)}}`}
             </li>
           )}
           {showTooltipFor && (
             <li className="indend">
-              <b className="asterisk">* </b>showTooltipFor=
+              showTooltipFor=
               {`{${JSON.stringify(showTooltipFor)}}`}
             </li>
           )}
           {showTotal && (
             <li className="indend">
-              <b className="asterisk">* </b>showTotal=
+              showTotal=
               {`{${JSON.stringify(showTotal)}}`}
             </li>
           )}
           {rowElements && (
             <li className="indend">
-              <b className="asterisk">* </b>rowElements=
+              rowElements=
               {`{${JSON.stringify(rowElements)}}`}
             </li>
           )}
           {defaultValues && (
             <li className="indend">
-              <b className="asterisk">* </b>defaultValues=
+              defaultValues=
               {`{${JSON.stringify(defaultValues)}}`}
             </li>
           )}
           {apiInstance && (
             <li className="indend">
-              <b className="asterisk">* </b>apiInstance=
+              apiInstance=
               {`{${JSON.stringify(apiInstance)}}`}
             </li>
           )}
           {config && (
             <li className="indend">
-              <b className="asterisk">* </b>config=
+              config=
               {`{${JSON.stringify(config)}}`}
             </li>
           )}
           {typeof onTableUpdate === "function" && (
             <li className="indend">
-              <b className="asterisk">* </b>onTableUpdate={`{(data) => console.log(data)}`}
+              onTableUpdate={`{(updatedData) => console.log(updatedData)}`}
+            </li>
+          )}
+          {typeof onAjaxCallBack === "function" && (
+            <li className="indend">
+              onAjaxCallBack={`{(response) => console.log(response)}`}
             </li>
           )}
           <li className="indend">
-            <b className="asterisk">* </b>showHeaders="{`${headers}`}"
+            showHeaders="{`${headers}`}"
           </li>
           <li>{`/>`}</li>
         </ol>
-        <div className="note">Fields marked in asterisk(*) are optional</div>
         <ReactFormDataTable
           data={data}
           theme={toggle ? "dark" : "light"}
@@ -133,7 +138,8 @@ const DemoDataTable = props => {
           rowElements={rowElements}
           defaultValues={defaultValues}
           apiInstance={apiInstance}
-          onTableUpdate={data => console.log(data)}
+          onTableUpdate={updatedData => console.log(updatedData)}
+          onAjaxCallBack={response => alert("Ajax callback on success or fail")}
         />
       </div>
     </>

@@ -47,7 +47,6 @@ function ReactFormDataTable(props) {
     Object.keys(config.footer.pagination).length > 0 &&
     config.footer.pagination;
   const cTotal = config && config.footer && config.footer.total;
-  const ajaxButtonName = props.ajaxButtonName;
 
   const [recordsPerPage, setRecordsPerPage] = useState(
     pagination && pagination.recordsPerPage
@@ -617,14 +616,9 @@ function ReactFormDataTable(props) {
                 <button
                   onClick={() => submitData()}
                   disabled={btnLoader}
-                  className="submitBtn"
+                  className={`submitBtn ${btnLoader ? "active" : ""}`}
                 >
-                  <div className="gridBtn">
-                    <span>{ajaxButtonName}&nbsp;</span>
-                    {btnLoader && (
-                      <HtmlIcon className="rotate" entity={"&#9864;"} />
-                    )}
-                  </div>
+                  <span>{apiInstance.ajaxButtonName}&nbsp;</span>
                 </button>
               </div>
             )}
@@ -662,7 +656,6 @@ ReactFormDataTable.propTypes = {
   defaultValues: PropTypes.array,
   apiInstance: PropTypes.object,
   onAjaxCallBack: PropTypes.func,
-  ajaxButtonName: PropTypes.string
 };
 ReactFormDataTable.defaultProps = {
   Table: "My table",
@@ -673,7 +666,6 @@ ReactFormDataTable.defaultProps = {
   rowElements: [],
   insertCloneData: [],
   showTooltipFor: [],
-  ajaxButtonName: "Submit",
   config: {
     footer: {
       total: {
@@ -683,7 +675,7 @@ ReactFormDataTable.defaultProps = {
         doubleEntryBalanceStrings: {
           zero: "Settled",
           plus: "Ahead",
-          minus: "Bal"
+          minus: "Behind"
         }
       },
       pagination: {
@@ -703,7 +695,8 @@ ReactFormDataTable.defaultProps = {
     },
     ajaxApiUrl: "",
     payloadKeyName: "payload",
-    ajaxType: "post"
+    ajaxType: "post",
+    ajaxButtonName: "Submit",
   }
 };
 

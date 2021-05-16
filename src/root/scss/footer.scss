@@ -6,6 +6,23 @@
   $footerSubmitBtnBgColor,
   $footerSubmitBtnBorderColor
 ) {
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: 0vw 0
+    }
+    25% {
+      background-position: 7.5vw 0
+    }
+    50% {
+      background-position: 15vw 0
+    }
+    75% {
+      background-position: 22.5vw 0
+    }
+    100% {
+      background-position: 30vw 0
+    }
+  }  
   .footer {
     margin-top: 10px;
     text-align: center;
@@ -49,20 +66,20 @@
       outline: 0;
       border: solid 1px $footerSubmitBtnBorderColor;
       border-radius: 5px;
-      .gridBtn {
-        display: flex;
+      &.active {
+        animation-duration: 10s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        color: $footerSubmitBtnColor;
+        background: linear-gradient(
+          to right,
+          $footerSubmitBtnBgColor 8%,
+          $footerSubmitBtnBorderColor 40%,
+          $footerSubmitBtnBgColor 33%
+        );
         position: relative;
-        .htmlIcon {
-          display: table;
-          color: $success;
-          font-size: 15px;
-          position: absolute;
-          right: -20px;
-          top: -5px;
-        }
-      }
-      &:active {
-        opacity: 0.8;
       }
     }
   }

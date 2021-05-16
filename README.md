@@ -38,9 +38,8 @@ showTotal | Array | [ ] | No | [salary]
 rowElements | Array | [ ] | No | [number, textbox, number, number] (Available form elements: number, textbox, textarea, checkbox, date, dateTime, fetch)
 insertCloneData | Array | [ ] | No | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
 showTooltipFor | Array | [ ] | No | [name]
-apiInstance | Object | | No |  { create: { baseURL: "", headers: {}, }, ajaxApiUrl: "", payloadKeyName: "payload", ajaxType: "post" }
-ajaxButtonName | String | Submit | No | {any}
-config | Object | { } | No | {"footer":{"total":{"locale":"en-IN","currency":"","maxDecimal":2,"doubleEntryBalanceStrings":{"zero":"Settled","plus":"Ahead","minus":"Bal"}},"pagination":{"currentPage":"first","recordsPerPage":10,"maxPagesToShow":5}}}
+apiInstance | Object | | No |  { create: { baseURL: "", headers: {}, }, ajaxApiUrl: "", payloadKeyName: "payload", ajaxType: "post", ajaxButtonName: "Submit" }
+config | Object | { } | No | {"footer":{"total":{"locale":"en-IN","currency":"","maxDecimal":2,"doubleEntryBalanceStrings":{"zero":"Settled","plus":"Ahead","minus":"Behind"}},"pagination":{"currentPage":"first","recordsPerPage":10,"maxPagesToShow":5}}}
 className | String |  | No | my-custom-table
 defaultValues | Array | [ ] | No | [{ age: 21 }] (used only during adding rows in table)
 cellWidth | String | 12rem | No | 20rem or 200px
@@ -57,6 +56,7 @@ theme | String | | No | light or dark
 | payloadKeyName | String | `postData` `putData` `payload` etc.. |
 | ajaxType | String | `put` `post` `update` etc.. |
 | onAjaxCallBack | Function | (data) => showSnackBar(data) |
+| ajaxButtonName | String | `Submit` |
 
 ### Function Props
 | Function name | Description

@@ -34,20 +34,21 @@ const menus = [
       gender: s.gender,
       dob: s.dob,
       salary: s.salary,
-      lastLogin: s.lastLogin,
-      title: s.title,
-      body: s.body
+      lastLogin: s.lastLogin
     })),
-    aliasHeaders: [
-      "Id",
-      "Name",
-      "Gender",
-      "DOB",
-      "Salary",
-      "Last Login",
-      "Title",
-      "Body"
-    ]
+    aliasHeaders: ["Id", "Name", "Gender", "DOB", "Salary", "Last Login"]
+  },
+  {
+    href: "/react-form-data-table/bigTable",
+    label: "Big Table",
+    data: sampleData.map(s => ({
+      title: s.title,
+      body: s.body,
+      content: s.body,
+      header: s.title,
+      summary: s.body
+    })),
+    aliasHeaders: ["Title", "Body", "Conent", "Header", "Summary"]
   },
   {
     href: "/react-form-data-table/paginationConfig",
@@ -161,19 +162,22 @@ const menus = [
     }
   },
   {
-    href: "/react-form-data-table/ajaxTable",
-    label: "Ajax",
-    data: sampleData.map(s => ({
-      id: s.id,
-      name: s.name,
-      gender: s.gender,
-      dob: s.dob,
-      salary: s.salary,
-      lastLogin: s.lastLogin
-    })).filter((_, i) => i < 5),
-    showTotal: ["salary"],
+    href: "/react-form-data-table/simpleAjaxTable",
+    label: "Simple Ajax Form",
+    data: sampleData
+      .map(s => ({
+        id: s.id,
+        name: s.name,
+        gender: s.gender,
+        dob: s.dob,
+        salary: s.salary,
+        lastLogin: s.lastLogin
+      }))
+      .filter((_, i) => i < 5),
+    config: {
+      footer: { pagination: {} }
+    },
     defaultValues: [{ gender: "Male" }],
-    aliasHeaders: ["Id", "Name", "Gender", "DOB", "Salary", "Last login"],
     rowElements: [
       "checkbox",
       "textbox",
@@ -192,13 +196,103 @@ const menus = [
     apiInstance: {
       create: {
         baseURL: "https://example.com",
-        headers: {Authorization: "1234AbCd"}
+        headers: { Authorization: "1234AbCd" }
       },
       ajaxApiUrl: "/v1/updateEmployee",
       payloadKeyName: "postPayload",
-      ajaxType: "put"
+      ajaxType: "put",
+      ajaxButtonName: "Save"
     },
-    onTableUpdate: () => {}
+    onTableUpdate: () => {},
+    onAjaxCallBack: () => {}
+  },
+  {
+    href: "/react-form-data-table/bigAjaxForm",
+    label: "Big Ajax Form",
+    data: sampleData
+      .map(s => ({
+        id: s.id,
+        title: s.title,
+        body: s.body,
+        name: s.name,
+        dob: s.dob,
+        salary: s.salary
+      }))
+      .filter((_, i) => i < 5),
+    defaultValues: [{ gender: "Male" }],
+    config: {
+      footer: { pagination: {} }
+    },
+    aliasHeaders: ["Id", "Title", "Body", "Name", "DOB", "Salary"],
+    rowElements: [
+      "checkbox",
+      "textarea",
+      "textarea",
+      "textbox",
+      "date",
+      "number"
+    ],
+    apiInstance: {
+      create: {
+        baseURL: "https://example.com",
+        headers: { Authorization: "1234AbCd" }
+      },
+      ajaxApiUrl: "/v1/updateEmployee",
+      payloadKeyName: "postPayload",
+      ajaxType: "put",
+      ajaxButtonName: "Update"
+    },
+    onTableUpdate: () => {},
+    onAjaxCallBack: () => {}
+  },
+  {
+    href: "/react-form-data-table/AjaxFormWithPagination",
+    label: "Ajax Form With Pagination",
+    data: sampleData.map(s => ({
+      id: s.id,
+      name: s.name,
+      gender: s.gender,
+      dob: s.dob,
+      salary: s.salary,
+      lastLogin: s.lastLogin
+    })),
+    defaultValues: [{ gender: "Male" }],
+    config : {
+      footer: {
+        pagination: {
+          currentPage: "last",
+          recordsPerPage: 6,
+          maxPagesToShow: 2
+        }
+      }
+    },
+    rowElements: [
+      "checkbox",
+      "textbox",
+      {
+        radio: {
+          radioList: [
+            { label: "Male", value: "Male", checked: true },
+            { label: "Female", value: "Female", checked: false }
+          ]
+        }
+      },
+      "date",
+      "number",
+      "dateTime"
+    ],
+    apiInstance: {
+      create: {
+        baseURL: "https://example.com",
+        headers: { Authorization: "1234AbCd" }
+      },
+      ajaxApiUrl: "/v1/updateEmployee",
+      payloadKeyName: "postPayload",
+      ajaxType: "put",
+      ajaxButtonName: "Save"
+    },
+    onTableUpdate: () => {},
+    onAjaxCallBack: () => {}
   }
 ];
 
