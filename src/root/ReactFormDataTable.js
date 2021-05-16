@@ -25,7 +25,9 @@ function ReactFormDataTable(props) {
   const cellWidth = props.cellWidth;
   const theme = props.theme;
   const [rowElements, setRowElements] = useState([]);
-  const [dbData, setDbData] = useState((props.data && props.data.length && props.data) || []);
+  const [dbData, setDbData] = useState(
+    (props.data && props.data.length && props.data) || []
+  );
   const dbDataBackup = props.data && props.data.length && [...props.data];
   const TableRows = dbDataBackup.length > 0 ? Object.keys(dbDataBackup[0]) : [];
   const aliasHeaders =
@@ -73,14 +75,12 @@ function ReactFormDataTable(props) {
   };
 
   const runAllApis = callBack => {
-    setLoader(true);
     const a = createElementPromise();
     Promise.all([a]).then(async array => {
       await Promise.all(array[0]).then(a => {
         setRowElements(a);
-        setLoader(false);
+        typeof callBack === "function" && callBack();
       });
-      typeof callBack === "function" && callBack();
     });
   };
 
@@ -117,8 +117,11 @@ function ReactFormDataTable(props) {
   }, []);
 
   useEffect(() => {
-    runAllApis();
-  }, [Table, props.rowElements]);
+    setLoader(true);
+    runAllApis(() => {
+      setLoader(false);
+    });
+  }, [props.rowElements]);
 
   useEffect(() => {
     if (props.data && props.data.length > 0) {
@@ -503,27 +506,28 @@ function ReactFormDataTable(props) {
               }}
               className={`grid-container responsive-grid`}
             >
-              {showHeaders && aliasHeaders.map((heading, i) => (
-                <div
-                  key={`key-${i}`}
-                  onClick={() => onSort(TableRows[i])}
-                  className="header"
-                >
-                  {i > 0 || !apiInstance.ajaxApiUrl ? (
-                    <>
-                      <span title={heading}>{heading}</span>{" "}
-                      {TableRows[i] === sortType.key && (
-                        <HtmlIcon
-                          className="default"
-                          entity={sortType.asc ? "&#8593;" : "&#8595;"}
-                        />
-                      )}
-                    </>
-                  ) : (
-                    <HtmlIcon className="default" entity={"&#9776;"} />
-                  )}
-                </div>
-              ))}
+              {showHeaders &&
+                aliasHeaders.map((heading, i) => (
+                  <div
+                    key={`key-${i}`}
+                    onClick={() => onSort(TableRows[i])}
+                    className="header"
+                  >
+                    {i > 0 || !apiInstance.ajaxApiUrl ? (
+                      <>
+                        <span title={heading}>{heading}</span>{" "}
+                        {TableRows[i] === sortType.key && (
+                          <HtmlIcon
+                            className="default"
+                            entity={sortType.asc ? "&#8593;" : "&#8595;"}
+                          />
+                        )}
+                      </>
+                    ) : (
+                      <HtmlIcon className="default" entity={"&#9776;"} />
+                    )}
+                  </div>
+                ))}
               {dbData.length > 0 ? (
                 <>
                   {dbData.map((d, i) =>
@@ -636,7 +640,9 @@ function ReactFormDataTable(props) {
       )}
     </div>
   ) : (
-    <div>Loading</div>
+    <div className="react-form-data-table">
+      <div className="loader"></div>
+    </div>
   );
 }
 
@@ -655,7 +661,7 @@ ReactFormDataTable.propTypes = {
   className: PropTypes.string,
   defaultValues: PropTypes.array,
   apiInstance: PropTypes.object,
-  onAjaxCallBack: PropTypes.func,
+  onAjaxCallBack: PropTypes.func
 };
 ReactFormDataTable.defaultProps = {
   Table: "My table",
@@ -696,7 +702,7 @@ ReactFormDataTable.defaultProps = {
     ajaxApiUrl: "",
     payloadKeyName: "payload",
     ajaxType: "post",
-    ajaxButtonName: "Submit",
+    ajaxButtonName: "Submit"
   }
 };
 

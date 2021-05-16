@@ -38,6 +38,7 @@ const Wrapper = props => {
                 apiInstance={menu.apiInstance}
                 onTableUpdate={menu.onTableUpdate}
                 onAjaxCallBack={menu.onAjaxCallBack}
+                onReFetchData={menu.onReFetchData}
               />
             )}
           />

@@ -6,23 +6,6 @@
   $footerSubmitBtnBgColor,
   $footerSubmitBtnBorderColor
 ) {
-  @keyframes placeHolderShimmer {
-    0% {
-      background-position: 0vw 0
-    }
-    25% {
-      background-position: 7.5vw 0
-    }
-    50% {
-      background-position: 15vw 0
-    }
-    75% {
-      background-position: 22.5vw 0
-    }
-    100% {
-      background-position: 30vw 0
-    }
-  }  
   .footer {
     margin-top: 10px;
     text-align: center;
@@ -67,7 +50,7 @@
       border: solid 1px $footerSubmitBtnBorderColor;
       border-radius: 5px;
       &.active {
-        animation-duration: 10s;
+        animation-duration: 5s;
         animation-fill-mode: forwards;
         animation-iteration-count: infinite;
         animation-name: placeHolderShimmer;
@@ -75,9 +58,9 @@
         color: $footerSubmitBtnColor;
         background: linear-gradient(
           to right,
-          $footerSubmitBtnBgColor 8%,
-          $footerSubmitBtnBorderColor 40%,
-          $footerSubmitBtnBgColor 33%
+          $footerSubmitBtnBgColor 0%,
+          $footerSubmitBtnBorderColor 50%,
+          $footerSubmitBtnBgColor 0%
         );
         position: relative;
       }

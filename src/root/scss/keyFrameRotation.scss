@@ -7,4 +7,32 @@
       transform: rotate(359deg);
     }
   }  
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: 0vw 0
+    }
+    25% {
+      background-position: 7.5vw 0
+    }
+    50% {
+      background-position: 15vw 0
+    }
+    75% {
+      background-position: 22.5vw 0
+    }
+    100% {
+      background-position: 30vw 0
+    }
+  }  
+  @keyframes color-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }

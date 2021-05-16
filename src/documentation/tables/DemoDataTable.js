@@ -13,7 +13,8 @@ const DemoDataTable = props => {
     defaultValues,
     apiInstance,
     onTableUpdate,
-    onAjaxCallBack
+    onAjaxCallBack,
+    onReFetchData
   } = props;
   const [toggle, setToggle] = useState(false);
   const [headers, setToggleHeaders] = useState(true);
@@ -64,11 +65,7 @@ const DemoDataTable = props => {
             theme="
             {`${toggle ? "dark" : "light"}`}"
           </li>
-          {width && (
-            <li className="indend">
-              cellWidth="{`${width}`}rem"
-            </li>
-          )}
+          {width && <li className="indend">cellWidth="{`${width}`}rem"</li>}
           {aliasHeaders && (
             <li className="indend">
               aliasHeaders=
@@ -121,9 +118,13 @@ const DemoDataTable = props => {
               onAjaxCallBack={`{(response) => console.log(response)}`}
             </li>
           )}
-          <li className="indend">
-            showHeaders="{`${headers}`}"
-          </li>
+          {typeof onReFetchData === "function" && (
+            <li className="indend">
+              onReFetchData=
+              {`{(bool) => bool === true && alert("Reload GET API, to reload data table, to update primary or unique key of all rows")}`}
+            </li>
+          )}
+          <li className="indend">showHeaders="{`${headers}`}"</li>
           <li>{`/>`}</li>
         </ol>
         <ReactFormDataTable
@@ -140,7 +141,59 @@ const DemoDataTable = props => {
           apiInstance={apiInstance}
           onTableUpdate={updatedData => console.log(updatedData)}
           onAjaxCallBack={response => alert("Ajax callback on success or fail")}
+          onReFetchData={bool =>
+            bool && alert("Reload API to reload data table")
+          }
         />
+        {apiInstance && (
+          <>
+            <h4>
+              <em>Note</em>
+            </h4>
+            <ol className="code">
+              <li>
+                "rowElements" props with array of element type is required. If
+                not set, ajax wont work. Instead empty payload will get
+                submitted.
+              </li>
+              <li>
+                "defaultValues" props with array of objects is required, while
+                adding new row elements with default value.
+              </li>
+              <li>
+                While updating each element in form, "onTableUpdate" callback
+                returns updated form data.
+              </li>
+              <li>
+                While saving data via AJAX, during on success or on fail, the
+                "onAjaxCallBack" returns response data from API, which can be
+                used for alertMessage() or doSomething()
+              </li>
+              <li>
+                <b>
+                  <em>Important:</em>
+                </b>{" "}
+                Please use "onReFetchData" callback to reload data table from
+                your backend.
+                <br />
+                This helps to update all primary or unique keys for newly added
+                row(s).
+              </li>
+              <li>
+                <b>
+                  <em>Important:</em>
+                </b>{" "}
+                Your primary key object should always be present in the first
+                position of the array.
+                <br />
+                Ex: It should be {`[{id: 10001, name: "John"}]`} not{" "}
+                {`[{name: "John", id: 10001}]`}. Meaning, your first column is
+                your identifier. If its not set correctly, your table update
+                wont work.
+              </li>
+            </ol>
+          </>
+        )}
       </div>
     </>
   );

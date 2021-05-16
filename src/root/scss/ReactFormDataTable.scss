@@ -52,7 +52,9 @@ $light: (
   scrollBarThumbColor: $light-white,
   errorWrapperColor: $black-2,
   totalColumnColor: $black-2,
-  totalLabelColor: $black-2
+  totalLabelColor: $black-2,
+  loaderColor1: $dim-white, 
+  loaderColor2: $light-white
 );
 
 $dark: (
@@ -100,7 +102,9 @@ $dark: (
   scrollBarThumbColor: $black-5,
   errorWrapperColor: $light-grey,
   totalColumnColor: $light-grey,
-  totalLabelColor: $light-grey
+  totalLabelColor: $light-grey,
+  loaderColor1: $black-4, 
+  loaderColor2: $black-5
 );
 
 .react-form-data-table {
