@@ -37,6 +37,7 @@ const Wrapper = props => {
                 defaultValues={menu.defaultValues}
                 apiInstance={menu.apiInstance}
                 onTableUpdate={menu.onTableUpdate}
+                onAjaxCallBack={menu.onAjaxCallBack}
               />
             )}
           />

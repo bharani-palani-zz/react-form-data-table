@@ -78,39 +78,49 @@ function FormElement(props) {
       switch (element) {
         case "textbox":
           return (
-            <input
-              type="text"
-              placeholder={placeholder}
-              onBlur={e => onChange(index, e.target.value, primaryKey)}
-              className="inputText"
-              defaultValue={value}
-              {...rest}
-            />
+            <div className="inputTextWrapper">
+              <input
+                type="text"
+                placeholder={placeholder}
+                onBlur={e => onChange(index, e.target.value, primaryKey)}
+                className="inputText"
+                defaultValue={value}
+                {...rest}
+              />
+            </div>
           );
         case "number":
           return (
-            <input
-              type="number"
-              placeholder={placeholder}
-              onBlur={e => onChange(index, e.target.value, primaryKey)}
-              className="inputText"
-              defaultValue={value}
-              {...rest}
-            />
+            <div className="inputTextWrapper">
+              <input
+                type="number"
+                placeholder={placeholder}
+                onBlur={e => onChange(index, e.target.value, primaryKey)}
+                className="inputText"
+                defaultValue={value}
+                {...rest}
+              />
+            </div>
           );
         case "textarea":
           return (
-            <textarea
-              placeholder={placeholder}
-              onBlur={e => onChange(index, e.target.value, primaryKey)}
-              rows="3"
-              className="inputText"
-              defaultValue={value}
-              {...rest}
-            />
+            <div className="inputTextWrapper">
+              <textarea
+                placeholder={placeholder}
+                onBlur={e => onChange(index, e.target.value, primaryKey)}
+                rows="3"
+                className="inputText"
+                defaultValue={value}
+                {...rest}
+              />
+            </div>
           );
         case "label":
-          return <div className="defaultLabel" {...rest}>{value}</div>;
+          return (
+            <div className="defaultLabel" {...rest}>
+              {value}
+            </div>
+          );
         case "checkbox":
           return isPostable ? (
             <div className="addRemove">
@@ -136,7 +146,9 @@ function FormElement(props) {
               )}
             </div>
           ) : (
-            <div className="defaultLabel" {...rest}>{value}</div>
+            <div className="defaultLabel" {...rest}>
+              {value}
+            </div>
           );
         case "date":
           return (
@@ -155,13 +167,16 @@ function FormElement(props) {
               type={"dateTime"}
               onChange={value => {
                 setDate(value);
-                onChange(index, objectToDate(value), primaryKey);
+                onChange(index, objectToDateTime(value), primaryKey);
               }}
             />
-
           );
         default:
-          return <div className="defaultLabel" {...rest}>{value}</div>;
+          return (
+            <div className="defaultLabel" {...rest}>
+              {value}
+            </div>
+          );
       }
     } else if (typeof element === "object") {
       const firstKey = Object.keys(element)[0];
@@ -190,7 +205,11 @@ function FormElement(props) {
             />
           );
         default:
-          return <div className="defaultLabel" {...rest}>{value}</div>;
+          return (
+            <div className="defaultLabel" {...rest}>
+              {value}
+            </div>
+          );
       }
     }
   };
