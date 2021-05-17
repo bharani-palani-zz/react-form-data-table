@@ -83,7 +83,7 @@ multiChoice | `Custom component`| Object | To create a single select dropdown or
 date | `Custom component` | String | Drop down date picker
 dateTime | `Custom component`| String | Drop down date and time picker
 
-###radio sample
+### radio sample
 <pre>
 {
 	radio: {
@@ -95,7 +95,7 @@ dateTime | `Custom component`| String | Drop down date and time picker
 }
 </pre>
 
-###multiChoice sample
+### multiChoice sample
 <pre>
 {
 	 multiChoice: {
