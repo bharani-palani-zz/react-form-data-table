@@ -9,6 +9,7 @@
     position: relative;
     user-select: none;
     color: $filterSelectComponentColor;
+    margin: 1px;
     .selected {
       display: grid;
       grid-template-columns: auto 20px;
@@ -20,6 +21,7 @@
       border: solid 1px $filterSelectComponentBorderColor;
       background: $filterSelectComponentBgColor;
       color: $filterSelectComponentColor;
+      font-size: 14px;
       .caretIcon {
         color: $filterSelectComponentColor;
         transition: transform 0.2s ease-in-out;
@@ -63,6 +65,10 @@
           border-right: solid 1px $filterSelectComponentBorderColor;
           border-bottom: 0;
           border-top: 0;
+          width: 100%;
+          background: $filterSelectComponentBgColor;
+          color: $filterSelectComponentColor;
+          font-size: 14px;
         }
         .icon {
           position: absolute;
@@ -79,8 +85,8 @@
         border: solid 1px $filterSelectComponentBorderColor;
         padding: 0px 5px 5px 0px;
         .selectedSingle {
-          background: $filterSelectComponentDropDownBgColorSelected;
-          color: $filterSelectComponentDropDownColorSelected;
+          // background: $filterSelectComponentDropDownBgColorSelected;
+          // color: $filterSelectComponentDropDownColorSelected;
         }
         ul {
           padding-left: 0;
@@ -95,6 +101,7 @@
           li {
             cursor: pointer;
             padding: 9px 5px;
+            font-size: 14px;
             color: $filterSelectComponentColor;
           }
         }

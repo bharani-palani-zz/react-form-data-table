@@ -32,10 +32,11 @@ const DemoDataTable = props => {
           <select
             className="dropDown"
             onChange={e => setWidth(Number(e.target.value))}
+            defaultValue={width}
           >
             <option value={10}>cellWidth</option>
-            {widthArray(10, 20).map(v => (
-              <option selected={v === width} value={v}>
+            {widthArray(10, 20).map((v,i) => (
+              <option key={i} defaultValue={v === width} value={v}>
                 {v}
               </option>
             ))}
@@ -66,6 +67,7 @@ const DemoDataTable = props => {
             {`${toggle ? "dark" : "light"}`}"
           </li>
           {width && <li className="indend">cellWidth="{`${width}`}rem"</li>}
+          <li className="indend">showHeaders="{`${headers}`}"</li>
           {aliasHeaders && (
             <li className="indend">
               aliasHeaders=
@@ -124,7 +126,6 @@ const DemoDataTable = props => {
               {`{(bool) => bool === true && alert("Reload GET API, to reload data table, to update primary or unique key of all rows")}`}
             </li>
           )}
-          <li className="indend">showHeaders="{`${headers}`}"</li>
           <li>{`/>`}</li>
         </ol>
         <ReactFormDataTable
@@ -139,7 +140,7 @@ const DemoDataTable = props => {
           rowElements={rowElements}
           defaultValues={defaultValues}
           apiInstance={apiInstance}
-          onTableUpdate={updatedData => console.log(updatedData)}
+          onTableUpdate={updatedData => console.log("bbb",updatedData)}
           onAjaxCallBack={response => alert("Ajax callback on success or fail")}
           onReFetchData={bool =>
             bool && alert("Reload API to reload data table")

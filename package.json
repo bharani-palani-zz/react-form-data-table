@@ -1,7 +1,7 @@
 {
   "homepage": "https://bharani-palani.github.io/react-form-data-table",
   "name": "react-form-data-table",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "React component with form based data table, compromising all data table features with ajax and more..",
   "author": "Bharani Palani",
   "license": "MIT",
@@ -24,7 +24,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "export PORT=3000 && react-scripts start",
+    "start": "export PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

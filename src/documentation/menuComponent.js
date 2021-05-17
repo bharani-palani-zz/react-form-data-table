@@ -255,15 +255,16 @@ const menus = [
       dob: s.dob,
       salary: s.salary,
       lastLogin: s.lastLogin,
-      // contact: s.contact
-    })),
-    defaultValues: [{ gender: "Male" }],
+      contact: s.contact,
+      transport: s.transport
+    })).filter((_, i) => i < 10),
+    defaultValues: { gender: "Male", transport: [] },
     config : {
       footer: {
         pagination: {
           currentPage: "last",
-          recordsPerPage: 6,
-          maxPagesToShow: 2
+          recordsPerPage: 10,
+          maxPagesToShow: 5
         }
       }
     },
@@ -281,6 +282,27 @@ const menus = [
       "date",
       "number",
       "dateTime",
+      {
+        multiChoice: {
+          dropDownList:[
+            { id: "Mobile", value: "Mobile" },
+            { id: "Email", value: "Email" },
+            { id: "Land line", value: "Land line" },
+          ]
+        },
+        searchable: false
+      },
+      {
+        multiChoice: {
+          dropDownList:[
+            { id: "Car", value: "Car", checked: false },
+            { id: "Bike", value: "Bike", checked: false },
+            { id: "Cab", value: "Cab", checked: false },
+            { id: "Tube", value: "Tube", checked: false },
+            { id: "Bus", value: "Bus", checked: false },
+          ]
+        }
+      }
     ],
     apiInstance: {
       create: {

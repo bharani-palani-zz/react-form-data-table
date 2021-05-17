@@ -67,7 +67,7 @@ const FilterSelect = props => {
   }, []);
 
   const onSetSelected = info => {
-    onChange(index, info.id, primaryKey); // need to pass id for dropDown
+    onChange(index, info.id, primaryKey);
     setSelected(info.value);
     type === "single" && setToggle(false);
   };
