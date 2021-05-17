@@ -69,11 +69,13 @@
   $errorWrapperColor,
   $totalColumnColor,
   $totalLabelColor,
-  $loaderColor1, 
-  $loaderColor2
+  $loaderColor1,
+  $loaderColor2,
+  $checkboxComponentBg,
+  $checkboxComponentBorder
 ) {
   background: $bodyBackGroundColor;
-  transition: background .2s ease-in;
+  transition: background 0.2s ease-in;
   font-family: sans-serif;
   @include core();
   @include keyframe-rotation();
@@ -123,9 +125,9 @@
     $filterSelectComponentColor,
     $filterSelectComponentBorderColor,
     $filterSelectComponentDropDownBgColorSelected,
-    $filterSelectComponentDropDownColorSelected  
+    $filterSelectComponentDropDownColorSelected
   );
-  @include checkbox-component();
+  @include checkbox-component($checkboxComponentBg, $checkboxComponentBorder);
   @include scroll-bar($scrollBarBgColor, $scrollBarThumbColor);
   @include input-text($inputColor, $inputBgColor, $inputBorderColor);
   @include tooltip-container();

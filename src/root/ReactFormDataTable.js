@@ -169,8 +169,8 @@ function ReactFormDataTable(props) {
     if (bool) {
       const obj = {};
       TableRows.map((t, i) => {
-        let dIndex = defaultValues.findIndex(d => Object.keys(d)[0] === t);
-        obj[t] = dIndex > -1 ? defaultValues[dIndex][t] : "";
+        let dIndex = Object.keys(defaultValues);
+        obj[t] = dIndex.includes(t) ? defaultValues[t] : "";
         return null;
       });
       let backup = [...dbData];
@@ -508,7 +508,7 @@ function ReactFormDataTable(props) {
             >
               {showHeaders &&
                 aliasHeaders.map((heading, i) => (
-                  <div
+                  <header
                     key={`key-${i}`}
                     onClick={() => onSort(TableRows[i])}
                     className="header"
@@ -526,7 +526,7 @@ function ReactFormDataTable(props) {
                     ) : (
                       <HtmlIcon className="default" entity={"&#9776;"} />
                     )}
-                  </div>
+                  </header>
                 ))}
               {dbData.length > 0 ? (
                 <>

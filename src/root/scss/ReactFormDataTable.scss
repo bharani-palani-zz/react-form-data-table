@@ -54,7 +54,9 @@ $light: (
   totalColumnColor: $black-2,
   totalLabelColor: $black-2,
   loaderColor1: $dim-white, 
-  loaderColor2: $light-white
+  loaderColor2: $light-white,
+  checkboxComponentBg: $white, 
+  checkboxComponentBorder: $black-2,
 );
 
 $dark: (
@@ -104,7 +106,9 @@ $dark: (
   totalColumnColor: $light-grey,
   totalLabelColor: $light-grey,
   loaderColor1: $black-4, 
-  loaderColor2: $black-5
+  loaderColor2: $black-5,
+  checkboxComponentBg: $black-2, 
+  checkboxComponentBorder: $light-grey,
 );
 
 .react-form-data-table {

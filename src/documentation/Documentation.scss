@@ -118,15 +118,17 @@ $borderColor: #ddd;
           color: $color;
           text-decoration: none;
           font-size: 14px;
+          display: block;
         }
         &.active {
           background: #fff;
           border-top: solid 1px $highLight; 
           border-bottom: solid 1px $highLight; 
           border-right: solid 1px transparent;
-          &:after {
-            border: solid 1px red;
-          }
+          border-left: solid 1px #ddd;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+          margin-left: 10px;
           a {
             color: #222;
           }

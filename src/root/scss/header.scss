@@ -10,6 +10,16 @@
     border-bottom: solid 1px $headerBorderColor;
     color: $headerColor;
     background: $headerBg;
+    &:first-of-type {
+      border-left: solid 1px $headerBorderColor;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &:last-of-type {
+      border-right: solid 1px $headerBorderColor;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
     .htmlIcon {
       color: $headerColor;
     }

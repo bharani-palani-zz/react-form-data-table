@@ -709,8 +709,20 @@ let sampleData = [
   }
 ];
 const gender = ["Male", "Female"];
-const names = ["Beverly", "Blair", "Carol", "Lynn", "Morgan", "Shannon", "Taylor", "Gayle", "Darcy", "Dorian"];
-const contact = ["Mobile", "Land line", "Email"];
+const names = [
+  "Beverly",
+  "Blair",
+  "Carol",
+  "Lynn",
+  "Morgan",
+  "Shannon",
+  "Taylor",
+  "Gayle",
+  "Darcy",
+  "Dorian"
+];
+const contacts = ["Mobile", "Land line", "Email"];
+const transport = ["Car", "Bike", "Cab", "Tube", "Bus"];
 const leadingZeros = number => {
   let num = Number(number);
   return num < 10 ? `0${num}` : num;
@@ -737,7 +749,7 @@ const randomNumber = (min, max) => {
 };
 sampleData = sampleData.map(s => ({
   id: s.id,
-  userId: s.userId, 
+  userId: s.userId,
   name: names[randomNumber(0, 9)],
   title: s.title,
   body: s.body,
@@ -745,7 +757,8 @@ sampleData = sampleData.map(s => ({
   dob: randomDate(new Date(1980, 0, 1), new Date()),
   salary: randomNumber(10000, 60000),
   lastLogin: randomDateTime(new Date(2015, 0, 1), new Date()),
-  contact
+  contact: contacts[randomNumber(0, 2)],
+  transport: transport.slice(randomNumber(0, transport.length))
 }));
 
 export default sampleData;

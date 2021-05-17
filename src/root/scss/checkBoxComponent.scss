@@ -1,4 +1,4 @@
-@mixin checkbox-component() {
+@mixin checkbox-component($checkboxComponentBg, $checkboxComponentBorder) {
   .checkBoxComponent {
     display: block;
     position: relative;
@@ -18,7 +18,7 @@
       &:checked {
         ~ {
           .checkmark {
-            background-color: $dim-white; // set theme
+            background-color: $checkboxComponentBg;
             &:after {
               display: block;
             }
@@ -32,7 +32,7 @@
       left: 0;
       height: 18px;
       width: 18px;
-      background-color: $dim-white; // set theme
+      background-color: $checkboxComponentBg;
       border-radius: 3px;
       border: solid 1px $light-grey;
       &:after {
@@ -47,8 +47,8 @@
         top: 2px;
         width: 5px;
         height: 10px;
-        border: solid $light-black;
-        border-width: 0 2px 2px 0;
+        border: solid $checkboxComponentBorder;
+        border-width: 0 1px 1px 0;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
