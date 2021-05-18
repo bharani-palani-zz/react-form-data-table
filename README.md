@@ -31,24 +31,45 @@
 ### Props
 Property  | Type | Default | IsRequired | Sample
 ----------- | -------| -------- | ------------- | ---------
-Table  | String | `My table` | No | Employee Table
-TableAliasRows | Array | [ ] | Yes | [ID, Name, Age, Salary]
-data | Array | [ ] | Yes | [{id: 10000, name: "John", age: 21, salary: 50000},{id: 10003, name: "Travolta", age: 28, salary: 60000}]
+Table  | String | `My table` | Yes for Ajax form | Employee Table
+TableAliasRows | Array | [ ] | No | [ID, Name, Age, Salary]
+data | Array | [ ] | Yes | Refer Data Table
 showTotal | Array | [ ] | No | [salary]
-rowElements | Array | [ ] | No | `[textbox, number]` Refer below table |
+rowElements | Array | [ ] | Yes for Ajax form | Refer rowElements table
 insertCloneData | Array | [ ] | No | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
 showTooltipFor | Array | [ ] | No | [name]
 apiInstance | Object | | No |  Refer below table
 defaultValues | Object | { } | No | {age: "21"}
-config | Object | { } | No | Refer below table
-className | String |  | No | my-custom-table
+config | Object | { } | No | Refer Config table
+className | String |  | No | `my-custom-table`
 defaultValues | Array | [ ] | No | [{ age: 21 }] *Note:* value will be added to element during adding rows in table
 cellWidth | String | `12rem` | No | 20rem or 200px
-theme | String | light| No | light or dark
+theme | String | light| No | `light` or `dark`
 onTableUpdate() | function | |No | Callback after table data is updated
 
+### Data Table
+
+```html
+[
+  {
+    "id": 10000,
+    "name": "John",
+    "age": 21,
+    "salary": 50000
+  },
+  {
+    "id": 10003,
+    "name": "Travolta",
+    "age": 28,
+    "salary": 60000
+  }
+  ...
+]
+```
+
 ### Config sample
-[https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3schools.com/jsref/jsref_tolocalestring.asp)
+See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3schools.com/jsref/jsref_tolocalestring.asp)
+
 <pre>
 {
   "footer": {
@@ -71,28 +92,36 @@ onTableUpdate() | function | |No | Callback after table data is updated
 }
 </pre>
 
-### rowElements array value
+### rowElements value in array
 Value  | Element | Type|  Description
 ----------- | -------| --- | -------- 
 textbox | `<input />` | String |Add text box to enter strings
 number | `<input />` | String |Add text box to enter numbers 
 textarea | `<textarea />`| String | Add text area to enter paragraphs 
-checkbox | `<button />` | String | + and - buttons to add or remove rows in table
-radio | `<input type="radio" />` | Object | Radio for boolean option
-multiChoice | `Custom component`| Object | To create a single select dropdown or multiple select dropdown *Note:* Should always be in the first position of array objects
-date | `Custom component` | String | Drop down date picker
-dateTime | `Custom component`| String | Drop down date and time picker
+checkbox | `<button />` | String | + and - buttons to add or remove rows in table. **Note:** Should always be in the first position in array of objects. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
+radio | `<input type="radio" />` | Object | Refer radio Table
+multiChoice | `Custom component`| Object | Refer multiChoice table
+date | `Custom component` | String | Drop down date picker. Ex: `new Date()`
+dateTime | `Custom component`| String | Drop down date and time picker. Ex: `new Date()`
 
 ### radio sample
 
 <pre>
 {
-	radio: {
-		radioList: [
-			{ label: "Male", value: "Male", checked: true },
-			{ label: "Female", value: "Female", checked: false }
-		]
-	}
+  "radio": {
+    "radioList": [
+      {
+        "label": "Male",
+        "value": "Male",
+        "checked": true
+      },
+      {
+        "label": "Female",
+        "value": "Female",
+        "checked": false
+      }
+    ]
+  }
 }
 </pre>
 
@@ -100,16 +129,31 @@ dateTime | `Custom component`| String | Drop down date and time picker
 
 <pre>
 {
-	 multiChoice: {
-		  dropDownList:[
-			{ id: "Mobile", value: "Mobile" },
-			{ id: "Email", value: "Email" },
-			{ id: "Land line", value: "Land line" },
-		  ]
-	},
-	searchable: false || true
+  "multiChoice": {
+    "dropDownList": [
+      {
+        "id": "Mobile",
+        "value": "Mobile"
+      },
+      {
+        "id": "Email",
+        "value": "Email"
+      },
+      {
+        "id": "Land line",
+        "value": "Land line"
+      }
+    ]
+  },
+  "searchable": true || false
 }
 </pre>
+
+**Note:**
+- If your row data value is string, single select drop down is rendered.
+**Ex:** "Mobile" `=>` Single select drop down
+- If your row data value is array, multi select select drop down is rendered.
+**Ex:** ["Mobile", "Email"] `=>` Multi select drop down
 
 ### [apiInstance](#api-ins)
 #### We use [Axios](https://www.npmjs.com/package/axios) for xmlHttpRequest()
@@ -123,6 +167,5 @@ dateTime | `Custom component`| String | Drop down date and time picker
 | ajaxType | String | `put` `post` `update` etc.. |
 | onAjaxCallBack | Function | (data) => showSnackBar(data) |
 | ajaxButtonName | String | `Submit` |
-
 
 

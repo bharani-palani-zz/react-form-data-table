@@ -727,22 +727,10 @@ const leadingZeros = number => {
   let num = Number(number);
   return num < 10 ? `0${num}` : num;
 };
-const randomDate = (start, end) => {
+const randomDateTime = (start, end) => {
   return new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  )
-    .toISOString()
-    .slice(0, 10);
-};
-const randomDateTime = (start, end) => {
-  const dt = new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
-  return `${dt.getFullYear()}-${leadingZeros(dt.getMonth())}-${leadingZeros(
-    dt.getDate()
-  )} ${leadingZeros(dt.getHours())}:${leadingZeros(
-    dt.getMinutes()
-  )}:${leadingZeros(dt.getSeconds())}`;
 };
 const randomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -754,7 +742,7 @@ sampleData = sampleData.map(s => ({
   title: s.title,
   body: s.body,
   gender: gender[randomNumber(0, 1)],
-  dob: randomDate(new Date(1980, 0, 1), new Date()),
+  dob: randomDateTime(new Date(1980, 0, 1), new Date()),
   salary: randomNumber(10000, 60000),
   lastLogin: randomDateTime(new Date(2015, 0, 1), new Date()),
   contact: contacts[randomNumber(0, 2)],
