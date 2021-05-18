@@ -57,6 +57,10 @@ const FilterSelect = props => {
   };
 
   useEffect(() => {
+    !toggle && type === "multiple" && onChange(index, checkedItems, primaryKey);
+  },[toggle]);
+
+  useEffect(() => {
     if (type === "multiple") {
       setSelected(getMoreString(selectedValueOrArray));
     }
@@ -124,7 +128,6 @@ const FilterSelect = props => {
     setDropDownList(newDropDownList);
     setCheckedItems(sList);
     setSelected(getMoreString(sList));
-    // onChange(index, sList, primaryKey);
   };
 
   return (
@@ -200,7 +203,7 @@ FilterSelect.propTypes = {
   onChange: PropTypes.func
 };
 FilterSelect.defaultProps = {
-  type: "single", // single or multiple
+  type: "single",
   searchable: true
 };
 

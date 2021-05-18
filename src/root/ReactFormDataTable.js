@@ -184,7 +184,12 @@ function ReactFormDataTable(props) {
     const insertData = dbData.filter(d => d[TableRows[0]] === "");
     const updateData = dbData
       .filter(d => updatedIds.includes(d[TableRows[0]]))
-      .filter(d => Number(d[TableRows[0]]) > 0 && d);
+      .filter(
+        d =>
+          d &&
+          (typeof d[TableRows[0]] === "number" ||
+            typeof d[TableRows[0]] === "string")
+      );
     let postData = {
       ...((insertData.length > 0 ||
         deleteData.length > 0 ||
@@ -659,7 +664,7 @@ ReactFormDataTable.propTypes = {
   onTableUpdate: PropTypes.func,
   config: PropTypes.object,
   className: PropTypes.string,
-  defaultValues: PropTypes.array,
+  defaultValues: PropTypes.object,
   apiInstance: PropTypes.object,
   onAjaxCallBack: PropTypes.func
 };
@@ -691,7 +696,7 @@ ReactFormDataTable.defaultProps = {
       }
     }
   },
-  defaultValues: [],
+  defaultValues: {},
   cellWidth: "12rem",
   theme: "",
   apiInstance: {

@@ -19,59 +19,7 @@ function FormElement(props) {
     onAddRow,
     ...rest
   } = props;
-  const [date, setDate] = useState(new Date(value));
 
-  const objectToDate = date => {
-    const [YYYY, MM, DD] = [
-      date.getFullYear(),
-      date.getMonth() + 1 > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`,
-      date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`
-    ];
-    const dateString = `${YYYY}-${MM}-${DD}`;
-    return dateString;
-  };
-
-  const objectToDateTime = dt => {
-    let [YYYY, MM, DD, hh, mm, ss] = [
-      dt.getFullYear(),
-      dt.getMonth() + 1 > 9 ? dt.getMonth() + 1 : `0${dt.getMonth() + 1}`,
-      dt.getDate() > 9 ? dt.getDate() : `0${dt.getDate()}`,
-      dt.getHours(),
-      dt.getMinutes(),
-      dt.getSeconds()
-    ];
-    hh = hh < 10 ? "0" + hh : hh;
-    mm = mm < 10 ? "0" + mm : mm;
-    ss = ss < 10 ? "0" + ss : ss;
-    const dateString = `${YYYY}-${MM}-${DD} ${hh}:${mm}:${ss}`;
-    return dateString;
-  };
-
-  let [dateTime, setDatetime] = useState(new Date(value));
-
-  if (element === "date") {
-    if (isNaN(Date.parse(date))) {
-      let today = new Date();
-      today = objectToDate(today);
-      const date = new Date(today);
-      setDate(date);
-      setTimeout(() => {
-        onChange(index, today);
-      }, 100);
-    }
-  }
-
-  if (element === "dateTime") {
-    if (isNaN(Date.parse(dateTime))) {
-      let today = new Date();
-      today = objectToDateTime(today);
-      dateTime = new Date(today);
-      setDatetime(dateTime);
-      setTimeout(() => {
-        onChange(index, today);
-      }, 100);
-    }
-  }
 
   const renderElement = (index, element, value, primaryKey) => {
     if (typeof element === "string") {
@@ -153,21 +101,19 @@ function FormElement(props) {
         case "date":
           return (
             <DateTimeSelector
-              value={date}
+              value={value}
               onChange={value => {
-                setDate(value);
-                onChange(index, objectToDate(value), primaryKey);
+                onChange(index, value, primaryKey);
               }}
             />
           );
         case "dateTime":
           return (
             <DateTimeSelector
-              value={date}
+              value={value}
               type={"dateTime"}
               onChange={value => {
-                setDate(value);
-                onChange(index, objectToDateTime(value), primaryKey);
+                onChange(index, value, primaryKey);
               }}
             />
           );

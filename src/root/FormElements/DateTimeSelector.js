@@ -133,7 +133,7 @@ const DateTimeSelector = props => {
 };
 
 DateTimeSelector.propTypes = {
-  value: PropTypes.object,
+  value: PropTypes.instanceOf(Date),
   type: PropTypes.string,
   onChange: PropTypes.func
 };

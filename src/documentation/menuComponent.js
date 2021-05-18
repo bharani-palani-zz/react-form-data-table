@@ -177,7 +177,7 @@ const menus = [
     config: {
       footer: { pagination: {} }
     },
-    defaultValues: [{ gender: "Male" }],
+    defaultValues: { gender: "Male" },
     rowElements: [
       "checkbox",
       "textbox",
@@ -219,7 +219,7 @@ const menus = [
         salary: s.salary
       }))
       .filter((_, i) => i < 5),
-    defaultValues: [{ gender: "Male" }],
+    defaultValues: { gender: "Male" },
     config: {
       footer: { pagination: {} }
     },
