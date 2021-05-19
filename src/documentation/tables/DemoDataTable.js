@@ -19,23 +19,33 @@ const DemoDataTable = props => {
   const [toggle, setToggle] = useState(false);
   const [headers, setToggleHeaders] = useState(true);
   const [width, setWidth] = useState(14);
+  const [insertData, setInsertData] = useState([]);
+
   const widthArray = (start, end) => {
     return Array(end - start + 1)
       .fill()
       .map((_, idx) => start + idx);
   };
+
+  const onInsertData = () => {
+    const arr = [data[data.length-1]];
+    setInsertData(arr);
+  }
   return (
     <>
       <div className="overflowHidden">
         <div className="infoDiv">
           <h3 className="heading">{name}</h3>
+          <button className={`btn`} onClick={() => onInsertData()}>
+            Clone Data
+          </button>
           <select
             className="dropDown"
             onChange={e => setWidth(Number(e.target.value))}
             defaultValue={width}
           >
             <option value={10}>cellWidth</option>
-            {widthArray(10, 20).map((v,i) => (
+            {widthArray(10, 20).map((v, i) => (
               <option key={i} defaultValue={v === width} value={v}>
                 {v}
               </option>
@@ -62,7 +72,12 @@ const DemoDataTable = props => {
               data
             ).substr(-50)}}`}
           </li>
-          <li className="indend">
+          {insertData.length > 0 && (
+            <li className="indend">
+              insertCloneData=
+              {`{${JSON.stringify(insertData)}}`}
+            </li>
+          )}          <li className="indend">
             theme="
             {`${toggle ? "dark" : "light"}`}"
           </li>
@@ -140,11 +155,12 @@ const DemoDataTable = props => {
           rowElements={rowElements}
           defaultValues={defaultValues}
           apiInstance={apiInstance}
-          onTableUpdate={updatedData => console.log("bbb",updatedData)}
+          onTableUpdate={updatedData => console.log("bbb", updatedData)}
           onAjaxCallBack={response => alert("Ajax callback on success or fail")}
           onReFetchData={bool =>
             bool && alert("Reload API to reload data table")
           }
+          insertCloneData={insertData}
         />
         {apiInstance && (
           <>

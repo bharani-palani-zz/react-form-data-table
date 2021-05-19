@@ -3,6 +3,7 @@ import Radio from "./FormElements/Radio";
 import HtmlIcon from "./FormElements/HtmlIcon";
 import FilterSelect from "./FormElements/FilterSelect";
 import DateTimeSelector from "./FormElements/DateTimeSelector";
+import helpers from "../helpers";
 
 function FormElement(props) {
   const {
@@ -20,6 +21,13 @@ function FormElement(props) {
     ...rest
   } = props;
 
+  const Label = () => {
+    return (
+      <div className="defaultLabel" {...rest}>
+        {value instanceof Date ? helpers.getDateTime(value) : (typeof value === "object" ? "Object" : value)}
+      </div>
+    );
+  };
 
   const renderElement = (index, element, value, primaryKey) => {
     if (typeof element === "string") {
@@ -64,11 +72,7 @@ function FormElement(props) {
             </div>
           );
         case "label":
-          return (
-            <div className="defaultLabel" {...rest}>
-              {value}
-            </div>
-          );
+          return <Label />;
         case "checkbox":
           return isPostable ? (
             <div className="addRemove">
@@ -118,11 +122,7 @@ function FormElement(props) {
             />
           );
         default:
-          return (
-            <div className="defaultLabel" {...rest}>
-              {value}
-            </div>
-          );
+          return <Label />;
       }
     } else if (typeof element === "object") {
       const firstKey = Object.keys(element)[0];
@@ -151,11 +151,7 @@ function FormElement(props) {
             />
           );
         default:
-          return (
-            <div className="defaultLabel" {...rest}>
-              {value}
-            </div>
-          );
+          return <Label />;
       }
     }
   };
