@@ -31,9 +31,8 @@
 ### Props
 Property  | Type | Default | IsRequired | Sample
 ----------- | -------| -------- | ------------- | ---------
-Table  | String | `My table` | Yes for Ajax form | Employee Table
-TableAliasRows | Array | [ ] | No | [ID, Name, Age, Salary]
 data | Array | [ ] | Yes | Refer Data Table
+TableAliasRows | Array | [ ] | No | [ID, Name, Age, Salary]
 showTotal | Array | [ ] | No | [salary]
 rowElements | Array | [ ] | Yes for Ajax form | Refer rowElements table
 insertCloneData | Array | [ ] | No | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
@@ -42,7 +41,7 @@ apiInstance | Object | | No |  Refer below table
 defaultValues | Object | { } | No | {age: "21"}
 config | Object | { } | No | Refer Config table
 className | String |  | No | `my-custom-table`
-defaultValues | Array | [ ] | No | [{ age: 21 }] *Note:* value will be added to element during adding rows in table
+defaultValues | Object | { } | No | { age: 21 } *Note:* value will be added to element during adding rows in table
 cellWidth | String | `12rem` | No | 20rem or 200px
 theme | String | light| No | `light` or `dark`
 onTableUpdate() | function | |No | Callback after table data is updated
@@ -95,14 +94,14 @@ See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3sch
 ### rowElements value in array
 Value  | Element | Type|  Description
 ----------- | -------| --- | -------- 
-textbox | `<input />` | String |Add text box to enter strings
-number | `<input />` | String |Add text box to enter numbers 
-textarea | `<textarea />`| String | Add text area to enter paragraphs 
-checkbox | `<button />` | String | + and - buttons to add or remove rows in table. **Note:** Should always be in the first position in array of objects. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
-radio | `<input type="radio" />` | Object | Refer radio Table
-multiChoice | `Custom component`| Object | Refer multiChoice table
-date | `Custom component` | String | Drop down date picker. Ex: `new Date()`
-dateTime | `Custom component`| String | Drop down date and time picker. Ex: `new Date()`
+textbox | `<input />` | String |Text box to enter strings
+number | `<input />` | Number | Text box to enter numbers 
+textarea | `<textarea />`| String | Text area to enter paragraphs 
+checkbox | `<button />` | String | + and - buttons to add or remove. **Note:** Should always be in the first position in array of objects. See to that the values are unique. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
+radio | `<input type="radio" />` | Object | Refer radio sample below
+multiChoice | `Custom component`| Object | Refer multiChoice sample below
+date | `Custom component` | Date() | Drop down date picker. Ex: `new Date()`
+dateTime | `Custom component`| Date() | Drop down date and time picker. Ex: `new Date()`
 
 ### radio sample
 
@@ -160,6 +159,7 @@ dateTime | `Custom component`| String | Drop down date and time picker. Ex: `new
 
 | Property | Type | Sample
 | -- | -- | -- |
+|Table  | String | EmployeeMySqlTable
 | baseURL | String | https://myapiservices.com |
 | headers | Object | { Authorization: `MySecretHashKey` } |
 | ajaxApiUrl | String | /V1/updateEmployeeInformation |

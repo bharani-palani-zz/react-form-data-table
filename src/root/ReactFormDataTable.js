@@ -24,11 +24,15 @@ function ReactFormDataTable(props) {
   const showHeaders = props.showHeaders;
   const cellWidth = props.cellWidth;
   const theme = props.theme;
-  const [rowElements, setRowElements] = useState([]);
   const [dbData, setDbData] = useState(
     (props.data && props.data.length && props.data) || []
   );
-  const dbDataBackup = props.data && props.data.length && [...props.data];
+  const [dbDataBackup, setDbDataBackup] = useState(props.data && props.data.length && [...props.data]);
+  const rowElements =
+    (props.rowElements.length && props.rowElements) ||
+    Array(Object.keys(props.data[0]).length)
+      .fill("label")
+      .map(v => v);
   const TableRows = dbDataBackup.length > 0 ? Object.keys(dbDataBackup[0]) : [];
   const aliasHeaders =
     props.aliasHeaders.length > 0
@@ -58,31 +62,6 @@ function ReactFormDataTable(props) {
     Math.ceil(dbData.length / recordsPerPage)
   );
   const maxPagesToShow = pagination && pagination.maxPagesToShow;
-
-  const createElementPromise = () => {
-    let rows =
-      props.rowElements.length > 0
-        ? props.rowElements
-        : Object.keys(dbData.length > 0 ? Object.keys(dbData[0]) : []).map(
-            v => "label"
-          );
-    rows = rows.map(row => {
-      return new Promise((resolve, reject) => {
-        resolve(row);
-      });
-    });
-    return rows;
-  };
-
-  const runAllApis = callBack => {
-    const a = createElementPromise();
-    Promise.all([a]).then(async array => {
-      await Promise.all(array[0]).then(a => {
-        setRowElements(a);
-        typeof callBack === "function" && callBack();
-      });
-    });
-  };
 
   useEffect(() => {
     let array = [];
@@ -116,12 +95,15 @@ function ReactFormDataTable(props) {
     return () => {};
   }, []);
 
-  useEffect(() => {
-    setLoader(true);
-    runAllApis(() => {
-      setLoader(false);
-    });
-  }, [props.rowElements]);
+  // useEffect(() => {
+  // setLoader(true);
+  // runAllApis(() => {
+  //   setLoader(false);
+  // });
+  // const elements = (props.rowElements.length > 0 && props.rowElements) || Array(Object.keys(dbDataBackup[0]).length).fill("label").map(v => v);
+  // console.log("bbb", elements);
+  // setRowElements(elements) // problem here
+  // }, [props.rowElements]);
 
   useEffect(() => {
     if (props.data && props.data.length > 0) {
@@ -134,6 +116,7 @@ function ReactFormDataTable(props) {
       setLoader(true);
       const newDbData = [...insertCloneData, ...dbData];
       setDbData(newDbData);
+      setDbDataBackup(newDbData);
       setTimeout(() => {
         setLoader(false);
       }, 500);
@@ -472,7 +455,7 @@ function ReactFormDataTable(props) {
     } record${plurals}`;
   };
 
-  return loader === false ? (
+  return loader === false && rowElements.length > 0 ? (
     <div className={`react-form-data-table ${theme} ${className}`}>
       {tableConfigErrors.length === 0 ? (
         <>

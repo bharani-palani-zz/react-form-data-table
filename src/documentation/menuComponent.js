@@ -257,7 +257,7 @@ const menus = [
       lastLogin: s.lastLogin,
       contact: s.contact,
       transport: s.transport
-    })).filter((_, i) => i < 10),
+    })).filter((_, i) => i < 20),
     defaultValues: { gender: "Male", transport: [] },
     config : {
       footer: {
