@@ -5,14 +5,12 @@
 - UX available with light and dark theme
 - Adaptive for tablet and mobile viewports
 - Ajax put, post, update etc.. can be configured.
-- Footer total with tailor made requirements
-- Row based, element onChange event, to alter changes in row data, using dynamic form elements
-- Dynamic form elements can be configured. <sup>*</sup>Default is label
-- Clone data to data table
-- Show tooltip for configured elements
-- While making changes in table, expect a callback of updated data
-- Configure footer and pagination properties based on your requirement
-- Add a custom class name to change the style as you wish
+- Row element onChange event, to update changes in row data, using dynamic form elements
+- Clone your custom data to data table
+- Show tooltip for elements
+- Configure Footer total with tailor made requirements
+- Configure pagination as you wish
+- Add a custom class name to change data table style. <br />*(Note:)*  This table is styled using display: grid with grid-template-columns
 
 ### A Demo is always awesome
 [https://bharani-palani.github.io/react-form-data-table](https://bharani-palani.github.io/react-form-data-table)
@@ -22,33 +20,34 @@
 <ReactFormDataTable
   data={[
     {id: 10000, name: "John", age: 21, salary: 50000},
-    {id: 10003, name: "Travolta", age: 28, salary: 60000}
+    {id: 10003, name: "Woo", age: 28, salary: 60000}
     ...
   ]}
 />
 ```
 
 ### Props
-Property  | Type | Default | IsRequired | Sample
------------ | -------| -------- | ------------- | ---------
-data | Array | [ ] | Yes | Refer Data Table
-TableAliasRows | Array | [ ] | No | [ID, Name, Age, Salary]
-showTotal | Array | [ ] | No | [salary]
-rowElements | Array | [ ] | Yes for Ajax form | Refer rowElements table
-insertCloneData | Array | [ ] | No | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
-showTooltipFor | Array | [ ] | No | [name]
-apiInstance | Object | | No |  Refer below table
-defaultValues | Object | { } | No | {age: "21"}
-config | Object | { } | No | Refer Config table
-className | String |  | No | `my-custom-table`
-defaultValues | Object | { } | No | { age: 21 } *Note:* value will be added to element during adding rows in table
-cellWidth | String | `12rem` | No | 20rem or 200px
-theme | String | light| No | `light` or `dark`
-onTableUpdate() | function | |No | Callback after table data is updated
+Property  | Type | Default | Sample
+----------- | -------| -------- | -------------
+data | Array | [ ] | Refer Data Table
+TableAliasRows | Array | [ ] | [ID, Name, Age, Salary]
+showTotal | Array | [ ] | [salary]
+rowElements | Array | [ ] | Refer rowElements table
+insertCloneData | Array | [ ] | [{id: 10002, name: "Woo", age: 31, salary: 70000}]
+showTooltipFor | Array | [ ] | [name]
+apiInstance | Object | | Refer below table
+defaultValues | Object | { } | {age: "21"}
+config | Object | { } | Refer Config table
+className | String |  | `my-custom-table`
+defaultValues | Object | { } | { age: 21 } <br /> *Note:* value will be added to element during adding rows in table
+cellWidth | String | `12rem` | 20rem or 200px
+theme | String | light| `light` or `dark`
+onTableUpdate() | function | | Callback after table form is updated
+insertCloneData | Array | [ ] | Clone your custom data to the top of your table.<br />Refer Data Table
 
 ### Data Table
 
-```html
+<pre>
 [
   {
     "id": 10000,
@@ -58,16 +57,16 @@ onTableUpdate() | function | |No | Callback after table data is updated
   },
   {
     "id": 10003,
-    "name": "Travolta",
+    "name": "Woo",
     "age": 28,
     "salary": 60000
   }
   ...
 ]
-```
+</pre>
 
 ### Config sample
-See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3schools.com/jsref/jsref_tolocalestring.asp)
+See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3schools.com/jsref/jsref_tolocalestring.asp) for locale, currency and maxDecimal settings
 
 <pre>
 {
@@ -95,13 +94,13 @@ See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3sch
 Value  | Element | Type|  Description
 ----------- | -------| --- | -------- 
 textbox | `<input />` | String |Text box to enter strings
-number | `<input />` | Number | Text box to enter numbers 
+number | `<input />` | String | Text box to enter numbers 
 textarea | `<textarea />`| String | Text area to enter paragraphs 
-checkbox | `<button />` | String | + and - buttons to add or remove. **Note:** Should always be in the first position in array of objects. See to that the values are unique. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
+checkbox | `<button />` | String | + and - buttons to add or remove. <br /> **Note:** Should always be in the first position in array of objects. See to that the values are unique to update values accordingly. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
 radio | `<input type="radio" />` | Object | Refer radio sample below
-multiChoice | `Custom component`| Object | Refer multiChoice sample below
-date | `Custom component` | Date() | Drop down date picker. Ex: `new Date()`
-dateTime | `Custom component`| Date() | Drop down date and time picker. Ex: `new Date()`
+multiChoice | `<Custom />`| Object | Refer multiChoice sample below
+date | `<Custom  />` | Date() | Drop down date picker.<br /> Ex: `new Date()`
+dateTime | `<Custom  />`| Date() | Drop down date and time picker.<br /> Ex: `new Date()`
 
 ### radio sample
 
@@ -112,12 +111,10 @@ dateTime | `Custom component`| Date() | Drop down date and time picker. Ex: `new
       {
         "label": "Male",
         "value": "Male",
-        "checked": true
       },
       {
         "label": "Female",
         "value": "Female",
-        "checked": false
       }
     ]
   }
@@ -144,15 +141,14 @@ dateTime | `Custom component`| Date() | Drop down date and time picker. Ex: `new
       }
     ]
   },
-  "searchable": true || false
+  "searchable": false
 }
 </pre>
 
 **Note:**
-- If your row data value is string, single select drop down is rendered.
-**Ex:** "Mobile" `=>` Single select drop down
-- If your row data value is array, multi select select drop down is rendered.
-**Ex:** ["Mobile", "Email"] `=>` Multi select drop down
+- If value is string("Mobile"), single select drop down is rendered.
+- If value is array(["Mobile", "Email"]), multi select select drop down is rendered.<br /> ** *** Array can be empty.
+- "searchable" key is default to true, which helps to search values from the list. <br />To disable search functionality, you can set it to false. <br />***** This feaure is only for multi select select drop.
 
 ### [apiInstance](#api-ins)
 #### We use [Axios](https://www.npmjs.com/package/axios) for xmlHttpRequest()
@@ -165,7 +161,8 @@ dateTime | `Custom component`| Date() | Drop down date and time picker. Ex: `new
 | ajaxApiUrl | String | /V1/updateEmployeeInformation |
 | payloadKeyName | String | `postData` `putData` `payload` etc.. |
 | ajaxType | String | `put` `post` `update` etc.. |
-| onAjaxCallBack | Function | (data) => showSnackBar(data) |
-| ajaxButtonName | String | `Submit` |
+| onAjaxCallBack | Function | (data) => showMessage(data) |
+| ajaxButtonName | String | `Save` |
+| onReFetchData | Function `Only success callback` | (data) => regenerateTableFromApi(data) |
 
 
