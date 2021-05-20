@@ -73,7 +73,7 @@ See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3sch
   "footer": {
     "total": {
       "locale": "en-IN",
-      "currency": "",
+      "currency": "USD",
       "maxDecimal": 2,
       "doubleEntryBalanceStrings": {
         "zero": "Settled",
@@ -90,17 +90,21 @@ See [https://www.w3schools.com/jsref/jsref_tolocalestring.asp](https://www.w3sch
 }
 </pre>
 
-### rowElements value in array
-Value  | Element | Type|  Description
+**Note:**
+- currency can be USD, INR etc..
+- currentPage can be "first" or "last"
+
+### rowElements
+Value  | Render element | Type|  Description
 ----------- | -------| --- | -------- 
 textbox | `<input />` | String |Text box to enter strings
 number | `<input />` | String | Text box to enter numbers 
 textarea | `<textarea />`| String | Text area to enter paragraphs 
 checkbox | `<button />` | String | + and - buttons to add or remove. <br /> **Note:** Should always be in the first position in array of objects. See to that the values are unique to update values accordingly. Watch [Demo](https://bharani-palani.github.io/react-form-data-table)
 radio | `<input type="radio" />` | Object | Refer radio sample below
-multiChoice | `<Custom />`| Object | Refer multiChoice sample below
-date | `<Custom  />` | Date() | Drop down date picker.<br /> Ex: `new Date()`
-dateTime | `<Custom  />`| Date() | Drop down date and time picker.<br /> Ex: `new Date()`
+multiChoice | `<PreDefined />`| Object | Refer multiChoice sample below
+date | `<PreDefined />` | Object | Drop down date picker.<br /> Ex: `new Date()`
+dateTime | `<PreDefined />`| Object | Drop down date and time picker.<br /> Ex: `new Date()`
 
 ### radio sample
 
@@ -147,8 +151,8 @@ dateTime | `<Custom  />`| Date() | Drop down date and time picker.<br /> Ex: `ne
 
 **Note:**
 - If value is string("Mobile"), single select drop down is rendered.
-- If value is array(["Mobile", "Email"]), multi select select drop down is rendered.<br /> ** *** Array can be empty.
-- "searchable" key is default to true, which helps to search values from the list. <br />To disable search functionality, you can set it to false. <br />***** This feaure is only for multi select select drop.
+- If value is array(["Mobile", "Email"]), multi select select drop down is rendered.<br /> *Array can be empty.*
+- "searchable" key is default to true, which helps to search values from the list. <br />To disable search functionality, you can set it to false. <br />*This feaure is only for multi select select drop.*
 
 ### [apiInstance](#api-ins)
 #### We use [Axios](https://www.npmjs.com/package/axios) for xmlHttpRequest()
@@ -163,6 +167,6 @@ dateTime | `<Custom  />`| Date() | Drop down date and time picker.<br /> Ex: `ne
 | ajaxType | String | `put` `post` `update` etc.. |
 | onAjaxCallBack | Function | (data) => showMessage(data) |
 | ajaxButtonName | String | `Save` |
-| onReFetchData | Function `Only success callback` | (data) => regenerateTableFromApi(data) |
+| onReFetchData | Function <br />`Only success callback` | (data) => reRenderTableFromApi(data) |
 
 
