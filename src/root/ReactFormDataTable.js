@@ -95,16 +95,6 @@ function ReactFormDataTable(props) {
     return () => {};
   }, []);
 
-  // useEffect(() => {
-  // setLoader(true);
-  // runAllApis(() => {
-  //   setLoader(false);
-  // });
-  // const elements = (props.rowElements.length > 0 && props.rowElements) || Array(Object.keys(dbDataBackup[0]).length).fill("label").map(v => v);
-  // console.log("bbb", elements);
-  // setRowElements(elements) // problem here
-  // }, [props.rowElements]);
-
   useEffect(() => {
     if (props.data && props.data.length > 0) {
       setDbData(props.data);
@@ -117,6 +107,7 @@ function ReactFormDataTable(props) {
       const newDbData = [...insertCloneData, ...dbData];
       setDbData(newDbData);
       setDbDataBackup(newDbData);
+      onTableUpdate && onTableUpdate(newDbData);
       setTimeout(() => {
         setLoader(false);
       }, 500);

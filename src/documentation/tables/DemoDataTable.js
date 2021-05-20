@@ -4,7 +4,6 @@ import ReactFormDataTable from "../../root/ReactFormDataTable";
 const DemoDataTable = props => {
   const {
     name,
-    data,
     aliasHeaders,
     config,
     showTooltipFor,
@@ -16,6 +15,7 @@ const DemoDataTable = props => {
     onAjaxCallBack,
     onReFetchData
   } = props;
+  const [data, setData] = useState(props.data);
   const [toggle, setToggle] = useState(false);
   const [headers, setToggleHeaders] = useState(true);
   const [width, setWidth] = useState(14);
@@ -28,9 +28,11 @@ const DemoDataTable = props => {
   };
 
   const onInsertData = () => {
-    const arr = [data[data.length-1]];
-    setInsertData(arr);
-  }
+    let last = data[data.length - 1];
+    last = {...last};
+    last.id = data.length + 1;
+    setInsertData([{...last}]);
+  };
   return (
     <>
       <div className="overflowHidden">
@@ -77,7 +79,8 @@ const DemoDataTable = props => {
               insertCloneData=
               {`{${JSON.stringify(insertData)}}`}
             </li>
-          )}          <li className="indend">
+          )}{" "}
+          <li className="indend">
             theme="
             {`${toggle ? "dark" : "light"}`}"
           </li>
@@ -155,7 +158,7 @@ const DemoDataTable = props => {
           rowElements={rowElements}
           defaultValues={defaultValues}
           apiInstance={apiInstance}
-          onTableUpdate={updatedData => console.log("bbb", updatedData)}
+          onTableUpdate={updatedData => setData(updatedData)}
           onAjaxCallBack={response => alert("Ajax callback on success or fail")}
           onReFetchData={bool =>
             bool && alert("Reload API to reload data table")
