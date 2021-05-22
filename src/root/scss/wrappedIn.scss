@@ -21,7 +21,6 @@
 @import "./defaultLabel";
 @import "./noRecords";
 @import "./addRemove";
-@import "./loader";
 
 @mixin wrapped-in(
   $bodyBackGroundColor,
@@ -69,17 +68,14 @@
   $errorWrapperColor,
   $totalColumnColor,
   $totalLabelColor,
-  $loaderColor1,
-  $loaderColor2,
   $checkboxComponentBg,
   $checkboxComponentBorder
 ) {
   background: $bodyBackGroundColor;
-  transition: background 0.2s ease-in;
+  transition: background 0.4s ease-in;
   font-family: sans-serif;
   @include core();
   @include keyframe-rotation();
-  @include loader($loaderColor1, $loaderColor2);
   @include default-label($defaultLabelColor);
   @include bi-grid(
     $biGridHeadingColor,

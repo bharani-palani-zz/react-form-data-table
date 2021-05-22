@@ -42,13 +42,14 @@ const menus = [
     href: "/react-form-data-table/bigTable",
     label: "Big Table",
     data: sampleData.map(s => ({
+      id: s.id,
       title: s.title,
       body: s.body,
       content: s.body,
       header: s.title,
       summary: s.body
     })),
-    aliasHeaders: ["Title", "Body", "Conent", "Header", "Summary"]
+    aliasHeaders: ["ID", "Title", "Body", "Conent", "Header", "Summary"]
   },
   {
     href: "/react-form-data-table/paginationConfig",

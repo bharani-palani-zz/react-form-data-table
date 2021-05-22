@@ -4,17 +4,28 @@ $color: #222;
 $highLight: #ddd;
 $borderColor: #ddd;
 .documentation {
-  position: relative;
+  height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 230px auto;
+  grid-template-columns: 1fr;
   font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
   min-height: 100vh;
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    overflow: hidden;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .body {
+      grid-template-columns: 2fr 4fr;
+    }
+  }
   * {
     outline: 0;
   }
   .overflowHidden {
-    overflow: hidden;
+    overflow-y: scroll;
     padding: 10px;
   }
   .react-form-data-table {
@@ -59,14 +70,14 @@ $borderColor: #ddd;
   }
   .infoDiv {
     display: grid;
-    grid-template-columns: 44% 15% 10% 15% 15%;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     column-gap: 3px;
     color: #aaa;
     align-items: baseline;
   }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .infoDiv {
-      grid-template-columns: 38% 10% 25% 25%;
+      grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     }
   }
   .btn {
@@ -122,8 +133,8 @@ $borderColor: #ddd;
         }
         &.active {
           background: #fff;
-          border-top: solid 1px $highLight; 
-          border-bottom: solid 1px $highLight; 
+          border-top: solid 1px $highLight;
+          border-bottom: solid 1px $highLight;
           border-right: solid 1px transparent;
           border-left: solid 1px #ddd;
           border-top-left-radius: 20px;
