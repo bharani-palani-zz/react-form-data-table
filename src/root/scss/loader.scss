@@ -1,10 +1,40 @@
 @mixin loader($loaderColor1, $loaderColor2) {
-  .loader {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 200% 200%;
-    animation: color-gradient 2s ease infinite;
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
+  @keyframes slide {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: 113px;
+    }
+  }
+  $speed: 1s;
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bar {
+      min-height: 20px;
+      border-radius: 10px;
+      width: calc(113px * 4);
+      @media only screen and (max-width: 450px) {
+        width: calc(113px * 3);
+      }
+      @media only screen and (max-width: 350px) {
+        width: calc(113px * 2);
+      }
+      box-shadow: 0px 10px 13px -6px rgba(44, 62, 80, 1);
+      background-color: $loaderColor2;
+      background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        $loaderColor1 40px,
+        $loaderColor1 80px
+      );
+
+      animation: slide $speed linear infinite;
+      will-change: background-position;
+    }
   }
 }

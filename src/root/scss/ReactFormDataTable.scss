@@ -6,6 +6,7 @@
 **/
 @import "./variables";
 @import "./wrappedIn";
+@import "./loader";
 
 $light: (
   bodyBackGroundColor: $white,
@@ -53,8 +54,6 @@ $light: (
   errorWrapperColor: $black-2,
   totalColumnColor: $black-2,
   totalLabelColor: $black-2,
-  loaderColor1: $dim-white, 
-  loaderColor2: $light-white,
   checkboxComponentBg: $white, 
   checkboxComponentBorder: $black-2,
 );
@@ -105,10 +104,17 @@ $dark: (
   errorWrapperColor: $light-grey,
   totalColumnColor: $light-grey,
   totalLabelColor: $light-grey,
-  loaderColor1: $black-4, 
-  loaderColor2: $black-5,
   checkboxComponentBg: $black-2, 
   checkboxComponentBorder: $light-grey,
+);
+
+$loaderLight: (
+  loaderColor1: $dim-white, 
+  loaderColor2: $light-white,
+);
+$loaderDark: (
+  loaderColor1: $black-4, 
+  loaderColor2: $black-5,
 );
 
 .react-form-data-table {
@@ -119,5 +125,14 @@ $dark: (
   &.dark {
     @include wrapped-in($dark...);
   }
-
+}
+.loader {
+  height: 50%;
+  @include loader($loaderLight...);
+  &.light {
+    @include loader($loaderLight...);
+  }
+  &.dark {
+    @include loader($loaderDark...);
+  }
 }

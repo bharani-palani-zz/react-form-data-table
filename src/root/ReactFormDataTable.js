@@ -27,7 +27,9 @@ function ReactFormDataTable(props) {
   const [dbData, setDbData] = useState(
     (props.data && props.data.length && props.data) || []
   );
-  const [dbDataBackup, setDbDataBackup] = useState(props.data && props.data.length && [...props.data]);
+  const [dbDataBackup, setDbDataBackup] = useState(
+    props.data && props.data.length && [...props.data]
+  );
   const rowElements =
     (props.rowElements.length && props.rowElements) ||
     Array(Object.keys(props.data[0]).length)
@@ -446,7 +448,7 @@ function ReactFormDataTable(props) {
     } record${plurals}`;
   };
 
-  return loader === false && rowElements.length > 0 ? (
+  return !loader && rowElements.length > 0 ? (
     <div className={`react-form-data-table ${theme} ${className}`}>
       {tableConfigErrors.length === 0 ? (
         <>
@@ -619,8 +621,10 @@ function ReactFormDataTable(props) {
       )}
     </div>
   ) : (
-    <div className="react-form-data-table">
-      <div className="loader"></div>
+    <div className={`loader ${theme}`}>
+      <div className="container">
+        <div className="bar"></div>
+      </div>
     </div>
   );
 }

@@ -8,10 +8,12 @@ import "./Documentation.scss";
 const Documentation = props => {
   return (
     <div className="documentation">
-      <Router history={history}>
-        <SideBar />
-        <Wrapper />
-      </Router>
+      <div className="body">
+        <Router history={history}>
+          <SideBar />
+          <Wrapper />
+        </Router>
+      </div>
     </div>
   );
 };
