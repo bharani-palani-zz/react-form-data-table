@@ -3,9 +3,17 @@
     display: grid;
     word-wrap: break-word;
     word-break: break-all;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 80% 20%;
+    @include view-mobile {
+      grid-template-columns: 45% 55%;
+    }
+    @include view-tablet-landscape {
+      grid-template-columns: 70% 30%;
+    }
+    @include view-tablet-potrait {
+      grid-template-columns: 50% 50%;
+    }
     align-items: center;
-    margin-bottom: 5px;
     .heading {
       color: $biGridHeadingColor;
       background: $biGridHeadingBackGroundColor;

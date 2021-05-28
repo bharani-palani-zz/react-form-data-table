@@ -6,13 +6,23 @@
   $groupInputDropDownEven
 ) {
   .group-input {
-    display: flex;
-    float: right;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    font-size: 12px;
     user-select: none;
     position: relative;
+    padding-left: 5px;
+    @include view-tablet-landscape {
+      grid-template-columns: 70% 30%;
+    }
+    @include view-tablet-potrait {
+      grid-template-columns: 70% 30%;
+    }
+    @include view-mobile {
+      grid-template-columns: 65% 35%;
+    }
     .inputWrapper {
-      position: inherit;
-      left: -35px;
+      position: relative;
       .join-input {
         padding: 0 25px 0 10px;
         z-index: 1;
@@ -24,11 +34,14 @@
         font-size: 14px;
         color: $groupInputColor;
         background: $groupInputBgColor;
+        -webkit-appearance: none;
+        width: 100%;
+        border-right: 0;
       }
       .dismiss {
         position: absolute;
         top: 8px;
-        right: 20px;
+        right: 0;
         color: $light-grey;
         font-size: 15px;
         cursor: pointer;
@@ -38,28 +51,25 @@
       }
     }
     .join-select {
-      position: absolute;
-      right: 0px;
-      min-width: 35px;
+      position: relative;
+      width: 100%;
       .selected {
+        background: $groupInputBgColor;
         padding: 10px;
         cursor: pointer;
         position: relative;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
         text-align: center;
-        min-width: 30px;
-        font-size: 12px;
         color: $groupInputColor;
-        background: $groupInputBgColor;
         border: solid 1px $groupInputBorderColor;
         .icon {
           float: right;
           position: relative;
           color: $groupInputColor;
-          line-height: 0.75;
+          line-height: 1;
           &.up {
-            // top: -2px;
+            top: -2px;
           }
         }
       }
@@ -68,7 +78,7 @@
         padding-left: 0px;
         font-size: 12px;
         position: absolute;
-        width: 100%;
+        width: inherit;
         z-index: 1;
         margin-top: 0;
         border-top: 0;
